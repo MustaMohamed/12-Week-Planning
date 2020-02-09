@@ -6,12 +6,12 @@
 // Templates vendor: Solutions Design.
 //////////////////////////////////////////////////////////////
 using System;
-using WeeksPlanning.HelperClasses;
-using WeeksPlanning.FactoryClasses;
+using WeeksPlanning.Entity.HelperClasses;
+using WeeksPlanning.Entity.FactoryClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using System.Runtime.Serialization;
 
-namespace WeeksPlanning.EntityClasses
+namespace WeeksPlanning.Entity.EntityClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
@@ -87,7 +87,7 @@ namespace WeeksPlanning.EntityClasses
 		/// <inheritdoc/>
 		protected override Type LLBLGenProEntityTypeEnumType
 		{
-			get { return typeof(WeeksPlanning.EntityType); }
+			get { return typeof(WeeksPlanning.Entity.EntityType); }
 		}
 
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode

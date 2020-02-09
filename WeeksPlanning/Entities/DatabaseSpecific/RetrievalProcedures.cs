@@ -11,7 +11,7 @@ using System.Collections.Generic;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using SD.LLBLGen.Pro.QuerySpec.Adapter;
 
-namespace WeeksPlanning.DatabaseSpecific
+namespace WeeksPlanning.Entity.DatabaseSpecific
 {
 	/// <summary>Class which contains the static logic to execute retrieval stored procedures in the database.</summary>
 	public static partial class RetrievalProcedures

@@ -10,10 +10,10 @@ using System.Linq;
 using System.Collections.Generic;
 using SD.LLBLGen.Pro.LinqSupportClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
-using WeeksPlanning.EntityClasses;
-using WeeksPlanning.FactoryClasses;
+using WeeksPlanning.Entity.EntityClasses;
+using WeeksPlanning.Entity.FactoryClasses;
 
-namespace WeeksPlanning.Linq
+namespace WeeksPlanning.Entity.Linq
 {
 	/// <summary>Meta-data class for the construction of Linq queries which are to be executed using LLBLGen Pro code.</summary>
 	public partial class LinqMetaData: ILinqMetaData
@@ -42,11 +42,11 @@ namespace WeeksPlanning.Linq
 		/// <returns>the requested datasource</returns>
 		public IDataSource GetQueryableForEntity(int typeOfEntity)
 		{
-			switch((WeeksPlanning.EntityType)typeOfEntity)
+			switch((WeeksPlanning.Entity.EntityType)typeOfEntity)
 			{
-				case WeeksPlanning.EntityType.PlanEntity:
+				case WeeksPlanning.Entity.EntityType.PlanEntity:
 					return this.Plan;
-				case WeeksPlanning.EntityType.UserEntity:
+				case WeeksPlanning.Entity.EntityType.UserEntity:
 					return this.User;
 				default:
 					return null;

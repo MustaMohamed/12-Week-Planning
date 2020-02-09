@@ -7,12 +7,12 @@
 //////////////////////////////////////////////////////////////
 using System;
 using System.Collections.Generic;
-using WeeksPlanning.EntityClasses;
-using WeeksPlanning.HelperClasses;
-using WeeksPlanning.RelationClasses;
+using WeeksPlanning.Entity.EntityClasses;
+using WeeksPlanning.Entity.HelperClasses;
+using WeeksPlanning.Entity.RelationClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace WeeksPlanning.FactoryClasses
+namespace WeeksPlanning.Entity.FactoryClasses
 {
 	// __LLBLGENPRO_USER_CODE_REGION_START AdditionalNamespaces
 	// __LLBLGENPRO_USER_CODE_REGION_END
@@ -22,14 +22,14 @@ namespace WeeksPlanning.FactoryClasses
 	public partial class EntityFactoryBase2<TEntity> : EntityFactoryCore2
 		where TEntity : EntityBase2, IEntity2
 	{
-		private readonly WeeksPlanning.EntityType _typeOfEntity;
+		private readonly WeeksPlanning.Entity.EntityType _typeOfEntity;
 		private readonly bool _isInHierarchy;
 
 		/// <summary>CTor</summary>
 		/// <param name="entityName">Name of the entity.</param>
 		/// <param name="typeOfEntity">The type of entity.</param>
 		/// <param name="isInHierarchy">If true, the entity of this factory is in an inheritance hierarchy, false otherwise</param>
-		public EntityFactoryBase2(string entityName, WeeksPlanning.EntityType typeOfEntity, bool isInHierarchy) : base(entityName)
+		public EntityFactoryBase2(string entityName, WeeksPlanning.Entity.EntityType typeOfEntity, bool isInHierarchy) : base(entityName)
 		{
 			_typeOfEntity = typeOfEntity;
 			_isInHierarchy = isInHierarchy;
@@ -39,7 +39,7 @@ namespace WeeksPlanning.FactoryClasses
 		public override IEntityFields2 CreateFields() { return ModelInfoProviderSingleton.GetInstance().GetEntityFields(this.ForEntityName); }
 		
 		/// <inheritdoc/>
-		public override IEntity2 CreateEntityFromEntityTypeValue(int entityTypeValue) {	return GeneralEntityFactory.Create((WeeksPlanning.EntityType)entityTypeValue); }
+		public override IEntity2 CreateEntityFromEntityTypeValue(int entityTypeValue) {	return GeneralEntityFactory.Create((WeeksPlanning.Entity.EntityType)entityTypeValue); }
 
 		/// <inheritdoc/>
 		public override IRelationCollection CreateHierarchyRelations(string objectAlias) { return ModelInfoProviderSingleton.GetInstance().GetHierarchyRelations(this.ForEntityName, objectAlias); }
@@ -71,7 +71,7 @@ namespace WeeksPlanning.FactoryClasses
 	public partial class PlanEntityFactory : EntityFactoryBase2<PlanEntity> 
 	{
 		/// <summary>CTor</summary>
-		public PlanEntityFactory() : base("PlanEntity", WeeksPlanning.EntityType.PlanEntity, false) { }
+		public PlanEntityFactory() : base("PlanEntity", WeeksPlanning.Entity.EntityType.PlanEntity, false) { }
 		/// <inheritdoc/>
 		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new PlanEntity(fields); }
 	}
@@ -81,7 +81,7 @@ namespace WeeksPlanning.FactoryClasses
 	public partial class UserEntityFactory : EntityFactoryBase2<UserEntity> 
 	{
 		/// <summary>CTor</summary>
-		public UserEntityFactory() : base("UserEntity", WeeksPlanning.EntityType.UserEntity, false) { }
+		public UserEntityFactory() : base("UserEntity", WeeksPlanning.Entity.EntityType.UserEntity, false) { }
 		/// <inheritdoc/>
 		protected override IEntity2 CreateImpl(IEntityFields2 fields) { return new UserEntity(fields); }
 	}
@@ -93,7 +93,7 @@ namespace WeeksPlanning.FactoryClasses
 		/// <summary>Creates a new, empty Entity object of the type specified</summary>
 		/// <param name="entityTypeToCreate">The entity type to create.</param>
 		/// <returns>A new, empty Entity object.</returns>
-		public static IEntity2 Create(WeeksPlanning.EntityType entityTypeToCreate)
+		public static IEntity2 Create(WeeksPlanning.Entity.EntityType entityTypeToCreate)
 		{
 			var factoryToUse = EntityFactoryFactory.GetFactory(entityTypeToCreate);
 			IEntity2 toReturn = null;
@@ -114,9 +114,9 @@ namespace WeeksPlanning.FactoryClasses
 		/// <summary>Initializes the <see cref="EntityFactoryFactory"/> class.</summary>
 		static EntityFactoryFactory()
 		{
-			foreach(int entityTypeValue in Enum.GetValues(typeof(WeeksPlanning.EntityType)))
+			foreach(int entityTypeValue in Enum.GetValues(typeof(WeeksPlanning.Entity.EntityType)))
 			{
-				var factory = GetFactory((WeeksPlanning.EntityType)entityTypeValue);
+				var factory = GetFactory((WeeksPlanning.Entity.EntityType)entityTypeValue);
 				_factoryPerType.Add(factory.ForEntityType ?? factory.Create().GetType(), factory);
 			}
 		}
@@ -126,16 +126,16 @@ namespace WeeksPlanning.FactoryClasses
 		/// <returns>factory to use or null if not found</returns>
 		public static IEntityFactory2 GetFactory(Type typeOfEntity) { return _factoryPerType.GetValue(typeOfEntity); }
 
-		/// <summary>Gets the factory of the entity with the WeeksPlanning.EntityType specified</summary>
+		/// <summary>Gets the factory of the entity with the WeeksPlanning.Entity.EntityType specified</summary>
 		/// <param name="typeOfEntity">The type of entity.</param>
 		/// <returns>factory to use or null if not found</returns>
-		public static IEntityFactory2 GetFactory(WeeksPlanning.EntityType typeOfEntity)
+		public static IEntityFactory2 GetFactory(WeeksPlanning.Entity.EntityType typeOfEntity)
 		{
 			switch(typeOfEntity)
 			{
-				case WeeksPlanning.EntityType.PlanEntity:
+				case WeeksPlanning.Entity.EntityType.PlanEntity:
 					return new PlanEntityFactory();
-				case WeeksPlanning.EntityType.UserEntity:
+				case WeeksPlanning.Entity.EntityType.UserEntity:
 					return new UserEntityFactory();
 				default:
 					return null;
@@ -146,7 +146,7 @@ namespace WeeksPlanning.FactoryClasses
 	/// <summary>Element creator for creating project elements from somewhere else, like inside Linq providers.</summary>
 	public class ElementCreator : ElementCreatorBase, IElementCreator2
 	{
-		/// <summary>Gets the factory of the Entity type with the WeeksPlanning.EntityType value passed in</summary>
+		/// <summary>Gets the factory of the Entity type with the WeeksPlanning.Entity.EntityType value passed in</summary>
 		/// <param name="entityTypeValue">The entity type value.</param>
 		/// <returns>the entity factory of the entity type or null if not found</returns>
 		public IEntityFactory2 GetFactory(int entityTypeValue) { return (IEntityFactory2)this.GetFactoryImpl(entityTypeValue); }
@@ -182,23 +182,23 @@ namespace WeeksPlanning.FactoryClasses
 		/// <inheritdoc/>
 		public override IDynamicRelation CreateDynamicRelation(DerivedTableDefinition leftOperand, JoinHint joinType, string rightOperandEntityName, string aliasRightOperand, IPredicate onClause)
 		{
-			return new DynamicRelation(leftOperand, joinType, (WeeksPlanning.EntityType)Enum.Parse(typeof(WeeksPlanning.EntityType), rightOperandEntityName, false), aliasRightOperand, onClause);
+			return new DynamicRelation(leftOperand, joinType, (WeeksPlanning.Entity.EntityType)Enum.Parse(typeof(WeeksPlanning.Entity.EntityType), rightOperandEntityName, false), aliasRightOperand, onClause);
 		}
 
 		/// <inheritdoc/>
 		public override IDynamicRelation CreateDynamicRelation(string leftOperandEntityName, JoinHint joinType, string rightOperandEntityName, string aliasLeftOperand, string aliasRightOperand, IPredicate onClause)
 		{
-			return new DynamicRelation((WeeksPlanning.EntityType)Enum.Parse(typeof(WeeksPlanning.EntityType), leftOperandEntityName, false), joinType, (WeeksPlanning.EntityType)Enum.Parse(typeof(WeeksPlanning.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
+			return new DynamicRelation((WeeksPlanning.Entity.EntityType)Enum.Parse(typeof(WeeksPlanning.Entity.EntityType), leftOperandEntityName, false), joinType, (WeeksPlanning.Entity.EntityType)Enum.Parse(typeof(WeeksPlanning.Entity.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
 		}
 		
 		/// <inheritdoc/>
 		public override IDynamicRelation CreateDynamicRelation(IEntityFieldCore leftOperand, JoinHint joinType, string rightOperandEntityName, string aliasLeftOperand, string aliasRightOperand, IPredicate onClause)
 		{
-			return new DynamicRelation(leftOperand, joinType, (WeeksPlanning.EntityType)Enum.Parse(typeof(WeeksPlanning.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
+			return new DynamicRelation(leftOperand, joinType, (WeeksPlanning.Entity.EntityType)Enum.Parse(typeof(WeeksPlanning.Entity.EntityType), rightOperandEntityName, false), aliasLeftOperand, aliasRightOperand, onClause);
 		}
 		
 		/// <inheritdoc/>
-		protected override IEntityFactoryCore GetFactoryImpl(int entityTypeValue) { return EntityFactoryFactory.GetFactory((WeeksPlanning.EntityType)entityTypeValue); }
+		protected override IEntityFactoryCore GetFactoryImpl(int entityTypeValue) { return EntityFactoryFactory.GetFactory((WeeksPlanning.Entity.EntityType)entityTypeValue); }
 
 		/// <inheritdoc/>
 		protected override IEntityFactoryCore GetFactoryImpl(Type typeOfEntity) { return EntityFactoryFactory.GetFactory(typeOfEntity);	}

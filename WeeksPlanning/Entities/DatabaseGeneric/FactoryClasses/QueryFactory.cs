@@ -7,13 +7,13 @@
 ////////////////////////////////////////////////////////////// 
 using System;
 using System.Linq;
-using WeeksPlanning.EntityClasses;
-using WeeksPlanning.HelperClasses;
+using WeeksPlanning.Entity.EntityClasses;
+using WeeksPlanning.Entity.HelperClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using SD.LLBLGen.Pro.QuerySpec.AdapterSpecific;
 using SD.LLBLGen.Pro.QuerySpec;
 
-namespace WeeksPlanning.FactoryClasses
+namespace WeeksPlanning.Entity.FactoryClasses
 {
 	/// <summary>Factory class to produce DynamicQuery instances and EntityQuery instances</summary>
 	public partial class QueryFactory : QueryFactoryBase2

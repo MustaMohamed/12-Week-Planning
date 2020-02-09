@@ -8,7 +8,7 @@
 using System;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace WeeksPlanning.DatabaseSpecific
+namespace WeeksPlanning.Entity.DatabaseSpecific
 {
 	/// <summary>Singleton implementation of the PersistenceInfoProvider. This class is the singleton wrapper through which the actual instance is retrieved.</summary>
 	internal static class PersistenceInfoProviderSingleton
@@ -58,17 +58,15 @@ namespace WeeksPlanning.DatabaseSpecific
 		/// <summary>Inits UserEntity's mappings</summary>
 		private void InitUserEntityMappings()
 		{
-			this.AddElementMapping("UserEntity", @"WeeksPlanning", @"dbo", "User", 10, 0);
-			this.AddElementFieldMapping("UserEntity", "CreatedByUserId", "CreatedByUserId", true, "BigInt", 0, 19, 0, false, "", null, typeof(System.Int64), 0);
-			this.AddElementFieldMapping("UserEntity", "DateCreatedUtc", "DateCreatedUtc", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 1);
-			this.AddElementFieldMapping("UserEntity", "Email", "Email", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 2);
-			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "BigInt", 0, 19, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 3);
-			this.AddElementFieldMapping("UserEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 4);
-			this.AddElementFieldMapping("UserEntity", "LastLoginDate", "LastLoginDate", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 5);
-			this.AddElementFieldMapping("UserEntity", "LastModifiedByUserId", "LastModifiedByUserId", true, "BigInt", 0, 19, 0, false, "", null, typeof(System.Int64), 6);
-			this.AddElementFieldMapping("UserEntity", "LastModifiedUtc", "LastModifiedUtc", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 7);
-			this.AddElementFieldMapping("UserEntity", "Name", "Name", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 8);
-			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 9);
+			this.AddElementMapping("UserEntity", @"WeeksPlanning", @"dbo", "User", 8, 0);
+			this.AddElementFieldMapping("UserEntity", "DateCreatedUtc", "DateCreatedUtc", false, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 0);
+			this.AddElementFieldMapping("UserEntity", "Email", "Email", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 1);
+			this.AddElementFieldMapping("UserEntity", "Id", "Id", false, "BigInt", 0, 19, 0, true, "SCOPE_IDENTITY()", null, typeof(System.Int64), 2);
+			this.AddElementFieldMapping("UserEntity", "IsActive", "IsActive", false, "Bit", 0, 0, 0, false, "", null, typeof(System.Boolean), 3);
+			this.AddElementFieldMapping("UserEntity", "LastLoginDate", "LastLoginDate", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 4);
+			this.AddElementFieldMapping("UserEntity", "LastModifiedUtc", "LastModifiedUtc", true, "DateTime", 0, 0, 0, false, "", null, typeof(System.DateTime), 5);
+			this.AddElementFieldMapping("UserEntity", "Name", "Name", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 6);
+			this.AddElementFieldMapping("UserEntity", "Password", "Password", false, "NVarChar", 100, 0, 0, false, "", null, typeof(System.String), 7);
 		}
 
 	}

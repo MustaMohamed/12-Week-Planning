@@ -46,7 +46,7 @@
     <Property Name="PreferVariableLengthTypes" Value="true" />
     <Property Name="PrimaryKeyConstraintPattern" Value="PK_{$Guid}" />
     <Property Name="ProjectCreator" Value="Musta" />
-    <Property Name="ProjectName" Value="WeeksPlanning" />
+    <Property Name="ProjectName" Value="WeeksPlanning.Entity" />
     <Property Name="ReflectNullabilityOfElementFieldInTargetField_v5" Value="false" />
     <Property Name="ReflectTypeOfElementFieldInTargetField_v5" Value="true" />
     <Property Name="RelationalModelDataElementNameCasingCaseInsensitiveDBs" Value="3" />
@@ -94,7 +94,7 @@
         <LanguageName Value="C#" />
         <PlatformName Value=".NET Standard 2.0" />
         <PresetName Value="SD.Presets.Adapter.General.Netstandard" />
-        <RootNamespace Value="WeeksPlanning" />
+        <RootNamespace Value="WeeksPlanning.Entity" />
         <TemplateGroup Value="Adapter" />
         <TemplateBindings>
           <Binding Name="SD.TemplateBindings.SharedTemplates.Netstandard20" />
@@ -105,27 +105,6 @@
       </LastUsedPreferences>
     </OutputType>
   </CodeGenerationCyclePreferences>
-  <OutputSettingValues>
-    <SettingValues>
-      <SettingValue Name="1:AdapterDbGenericSubFolderName" Value="DatabaseGeneric" Type="18" />
-      <SettingValue Name="1:AdapterDbSpecificNamespaceSuffix" Value="DatabaseSpecific" Type="18" />
-      <SettingValue Name="1:AdapterDbSpecificProjectFileSuffix" Value="DBSpecific" Type="18" />
-      <SettingValue Name="1:AdapterDbSpecificSubFolderName" Value="DatabaseSpecific" Type="18" />
-      <SettingValue Name="1:ConvertNulledReferenceTypesToDefaultValue" Value="true" Type="3" />
-      <SettingValue Name="1:EntityBaseClassNameDefault" Value="CommonEntityBase" Type="18" />
-      <SettingValue Name="1:FieldPropertyIsPublicDefault" Value="true" Type="3" />
-      <SettingValue Name="1:GenerateAsNullableTypeDefault" Value="true" Type="3" />
-      <SettingValue Name="1:GenerateEntityFieldFactory" Value="false" Type="3" />
-      <SettingValue Name="1:GenerateEntityFieldsFactory" Value="false" Type="3" />
-      <SettingValue Name="1:InlineValueTypedFields" Value="true" Type="3" />
-      <SettingValue Name="1:LazyLoadingWithoutResultReturnsNew" Value="false" Type="3" />
-      <SettingValue Name="1:NavigatorPropertyIsPublicDefault" Value="true" Type="3" />
-      <SettingValue Name="1:SupportedActionCombinations" Value="0,1,2,3,4,5,6,7" Type="18" />
-      <SettingValue Name="1:TdlEmitTimeDateInOutputFiles" Value="false" Type="3" />
-      <SettingValue Name="1:TypedListOutputTypeDefault" Value="PocoWithQuerySpecQuery" Type="18" />
-      <SettingValue Name="1:TypedViewOutputTypeDefault" Value="PocoWithQuerySpecQuery" Type="18" />
-    </SettingValues>
-  </OutputSettingValues>
   <CodeGenerationMetaDataDefaults>
     <TargetElement Type="256">
       <Defaults>
@@ -138,28 +117,26 @@
   <EntityModel>
     <ValueTypeDefinitions />
     <EntityDefinitions>
-      <EntityDefinition Name="Plan" ObjectID="0f4b9d0a-c01b-4135-9adf-d75d8d73675f">
+      <EntityDefinition Name="Plan" ObjectID="f1b94b95-b7a1-4499-96f5-258d59d8f72b">
         <Fields>
-          <Field Name="CreatedByUserId" Type="long" IsOptional="true" Precision="19" IsAutoCreated="true" />
+          <Field Name="CreatedByUserId" Type="long" IsOptional="true" Precision="19" />
           <Field Name="DateCreatedUtc" Type="datetime" />
           <Field Name="DurationInWeeks" Type="short" Precision="5" />
           <Field Name="Id" Type="long" IsReadOnly="true" Precision="19" IsPrimaryKey="true" />
           <Field Name="IsActive" Type="bool" />
-          <Field Name="LastModifiedByUserId" Type="long" IsOptional="true" Precision="19" IsAutoCreated="true" />
+          <Field Name="LastModifiedByUserId" Type="long" IsOptional="true" Precision="19" />
           <Field Name="LastModifiedUtc" Type="datetime" IsOptional="true" />
           <Field Name="Name" Type="string" MaxLength="100" />
           <Field Name="StartingDateUtc" Type="datetime" />
         </Fields>
       </EntityDefinition>
-      <EntityDefinition Name="User" ObjectID="2446a6c9-ff6d-4d61-94d8-01a03d33a049">
+      <EntityDefinition Name="User" ObjectID="b7d1eabd-bdc0-40ee-8ffe-3103b8085f1c">
         <Fields>
-          <Field Name="CreatedByUserId" Type="long" IsOptional="true" Precision="19" />
           <Field Name="DateCreatedUtc" Type="datetime" />
           <Field Name="Email" Type="string" MaxLength="100" />
           <Field Name="Id" Type="long" IsReadOnly="true" Precision="19" IsPrimaryKey="true" />
           <Field Name="IsActive" Type="bool" />
           <Field Name="LastLoginDate" Type="datetime" IsOptional="true" />
-          <Field Name="LastModifiedByUserId" Type="long" IsOptional="true" Precision="19" />
           <Field Name="LastModifiedUtc" Type="datetime" IsOptional="true" />
           <Field Name="Name" Type="string" MaxLength="100" />
           <Field Name="Password" Type="string" MaxLength="100" />
@@ -167,12 +144,12 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Plan.CreatedByUser-User.CreatedPlans" Start=":Plan" End=":User" StartNavigator="CreatedByUser" EndNavigator="CreatedPlans" Type="4" EndIsOptional="true">
+      <NormalRelationship Name="Plan.User-User.Plans" Start=":Plan" End=":User" StartNavigator="User" EndNavigator="Plans" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="CreatedByUserId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Plan.ModifiedByUser-User.ModifiedPlans" Start=":Plan" End=":User" StartNavigator="ModifiedByUser" EndNavigator="ModifiedPlans" Type="4" EndIsOptional="true">
+      <NormalRelationship Name="Plan.User1-User.Plans1" Start=":Plan" End=":User" StartNavigator="User1" EndNavigator="Plans1" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="LastModifiedByUserId" PkField="Id" />
         </FieldRelationships>
@@ -193,9 +170,9 @@
         <Sequence Name="@@IDENTITY" />
       </SystemSequences>
       <Catalogs>
-        <Catalog Name="WeeksPlanning">
+        <Catalog Name="WeeksPlanning" SyncSource="2">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2020-02-08T14:29:24.8275029Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2020-02-09T20:20:32.1076678Z">
               <Tables>
                 <Table Name="Plan">
                   <PkConstraintName Name="PK_Plan" />
@@ -261,13 +238,11 @@
         </EntityMapping>
         <EntityMapping EntityName=":User" TargetName="WeeksPlanning:dbo:User">
           <FieldMappings>
-            <FieldMapping FieldName="CreatedByUserId" TargetFieldName="CreatedByUserId" />
             <FieldMapping FieldName="DateCreatedUtc" TargetFieldName="DateCreatedUtc" />
             <FieldMapping FieldName="Email" TargetFieldName="Email" />
             <FieldMapping FieldName="Id" TargetFieldName="Id" SequenceToUse="SCOPE_IDENTITY()" />
             <FieldMapping FieldName="IsActive" TargetFieldName="IsActive" />
             <FieldMapping FieldName="LastLoginDate" TargetFieldName="LastLoginDate" />
-            <FieldMapping FieldName="LastModifiedByUserId" TargetFieldName="LastModifiedByUserId" />
             <FieldMapping FieldName="LastModifiedUtc" TargetFieldName="LastModifiedUtc" />
             <FieldMapping FieldName="Name" TargetFieldName="Name" />
             <FieldMapping FieldName="Password" TargetFieldName="Password" />

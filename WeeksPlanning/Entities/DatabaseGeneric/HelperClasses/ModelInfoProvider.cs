@@ -6,11 +6,11 @@
 // Templates vendor: Solutions Design.
 //////////////////////////////////////////////////////////////
 using System;
-using WeeksPlanning.FactoryClasses;
-using WeeksPlanning.RelationClasses;
+using WeeksPlanning.Entity.FactoryClasses;
+using WeeksPlanning.Entity.RelationClasses;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace WeeksPlanning.HelperClasses
+namespace WeeksPlanning.Entity.HelperClasses
 {
 	/// <summary>Singleton implementation of the ModelInfoProvider. This class is the singleton wrapper through which the actual instance is retrieved.</summary>
 	public static class ModelInfoProviderSingleton
@@ -65,13 +65,11 @@ namespace WeeksPlanning.HelperClasses
 		private void InitUserEntityInfo()
 		{
 			this.AddFieldIndexEnumForElementName(typeof(UserFieldIndex), "UserEntity");
-			this.AddElementFieldInfo("UserEntity", "CreatedByUserId", typeof(Nullable<System.Int64>), false, false, false, true,  (int)UserFieldIndex.CreatedByUserId, 0, 0, 19);
 			this.AddElementFieldInfo("UserEntity", "DateCreatedUtc", typeof(System.DateTime), false, false, false, false,  (int)UserFieldIndex.DateCreatedUtc, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "Email", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Email, 100, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "Id", typeof(System.Int64), true, false, true, false,  (int)UserFieldIndex.Id, 0, 0, 19);
 			this.AddElementFieldInfo("UserEntity", "IsActive", typeof(System.Boolean), false, false, false, false,  (int)UserFieldIndex.IsActive, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "LastLoginDate", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.LastLoginDate, 0, 0, 0);
-			this.AddElementFieldInfo("UserEntity", "LastModifiedByUserId", typeof(Nullable<System.Int64>), false, false, false, true,  (int)UserFieldIndex.LastModifiedByUserId, 0, 0, 19);
 			this.AddElementFieldInfo("UserEntity", "LastModifiedUtc", typeof(Nullable<System.DateTime>), false, false, false, true,  (int)UserFieldIndex.LastModifiedUtc, 0, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "Name", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Name, 100, 0, 0);
 			this.AddElementFieldInfo("UserEntity", "Password", typeof(System.String), false, false, false, false,  (int)UserFieldIndex.Password, 100, 0, 0);

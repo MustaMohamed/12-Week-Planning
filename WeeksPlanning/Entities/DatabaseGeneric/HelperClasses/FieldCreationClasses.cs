@@ -8,7 +8,7 @@
 using System;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace WeeksPlanning.HelperClasses
+namespace WeeksPlanning.Entity.HelperClasses
 {
 	/// <summary>Field Creation Class for entity PlanEntity</summary>
 	public partial class PlanFields
@@ -36,8 +36,6 @@ namespace WeeksPlanning.HelperClasses
 	/// <summary>Field Creation Class for entity UserEntity</summary>
 	public partial class UserFields
 	{
-		/// <summary>Creates a new UserEntity.CreatedByUserId field instance</summary>
-		public static EntityField2 CreatedByUserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.CreatedByUserId); }}
 		/// <summary>Creates a new UserEntity.DateCreatedUtc field instance</summary>
 		public static EntityField2 DateCreatedUtc { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.DateCreatedUtc); }}
 		/// <summary>Creates a new UserEntity.Email field instance</summary>
@@ -48,8 +46,6 @@ namespace WeeksPlanning.HelperClasses
 		public static EntityField2 IsActive { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.IsActive); }}
 		/// <summary>Creates a new UserEntity.LastLoginDate field instance</summary>
 		public static EntityField2 LastLoginDate { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.LastLoginDate); }}
-		/// <summary>Creates a new UserEntity.LastModifiedByUserId field instance</summary>
-		public static EntityField2 LastModifiedByUserId { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.LastModifiedByUserId); }}
 		/// <summary>Creates a new UserEntity.LastModifiedUtc field instance</summary>
 		public static EntityField2 LastModifiedUtc { get { return ModelInfoProviderSingleton.GetInstance().CreateField2(UserFieldIndex.LastModifiedUtc); }}
 		/// <summary>Creates a new UserEntity.Name field instance</summary>

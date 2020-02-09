@@ -7,7 +7,7 @@
 //////////////////////////////////////////////////////////////
 using System;
 
-namespace WeeksPlanning
+namespace WeeksPlanning.Entity
 {
 
 

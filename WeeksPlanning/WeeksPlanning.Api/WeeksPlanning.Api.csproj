@@ -2,12 +2,17 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <RootNamespace>WeekPlanning.Api</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
       <ProjectReference Include="..\Entities\DatabaseGeneric\WeeksPlanning.csproj" />
       <ProjectReference Include="..\Entities\DatabaseSpecific\WeeksPlanningDBSpecific.csproj" />
-      <ProjectReference Include="..\ORM\ORM.csproj" />
+      <ProjectReference Include="..\Framework\DependencyInjection.Runner\DependencyInjection.Runner.csproj" />
+      <ProjectReference Include="..\Framework\ORM\ORM.csproj" />
+      <ProjectReference Include="..\WeeksPlanning.Core\WeeksPlanning.Core.csproj" />
+      <ProjectReference Include="..\WeeksPlanning.Repositories\WeeksPlanning.Repositories.csproj" />
+      <ProjectReference Include="..\WeeksPlanning.Services\WeeksPlanning.Services.csproj" />
     </ItemGroup>
 
     <ItemGroup>

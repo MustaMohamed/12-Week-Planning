@@ -9,7 +9,7 @@ using System;
 using System.Data;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 
-namespace WeeksPlanning.DatabaseSpecific
+namespace WeeksPlanning.Entity.DatabaseSpecific
 {
 	/// <summary>Class which contains the static logic to execute action stored procedures in the database.</summary>
 	public static partial class ActionProcedures

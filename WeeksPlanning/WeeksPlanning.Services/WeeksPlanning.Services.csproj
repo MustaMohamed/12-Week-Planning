@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Framework\DependencyInjection.Config\DependencyInjection.Config.csproj" />
+      <ProjectReference Include="..\WeeksPlanning.Core\WeeksPlanning.Core.csproj" />
+    </ItemGroup>
+
+</Project>
