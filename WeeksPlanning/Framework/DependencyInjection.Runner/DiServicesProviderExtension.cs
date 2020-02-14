@@ -35,7 +35,8 @@ namespace DependencyInjection.Runner
                 .ToList()
                 .ForEach(p =>
                 {
-                    if (p.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{p.Name}")) is var inter != null)
+                    var inter = p.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{p.Name}"));
+                    if (inter != null)
                     {
                         services.AddScoped(inter, p);
                     }
@@ -51,7 +52,8 @@ namespace DependencyInjection.Runner
                 .ToList()
                 .ForEach(s =>
                 {
-                    if (s.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{s.Name}")) is var inter != null)
+                    var inter = s.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{s.Name}"));
+                    if (inter != null)
                     {
                         services.AddSingleton(inter, s);
                     }
@@ -67,8 +69,8 @@ namespace DependencyInjection.Runner
                 .ToList()
                 .ForEach(s =>
                 {
-                    if (s.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{s.Name}")) is var inter != null)
-                    {
+                    var inter = s.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{s.Name}"));
+                    if (inter != null){
                         services.AddTransient(inter, s);
                     }
                     else

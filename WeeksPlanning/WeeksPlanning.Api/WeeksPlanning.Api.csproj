@@ -6,8 +6,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Entities\DatabaseGeneric\WeeksPlanning.csproj" />
-      <ProjectReference Include="..\Entities\DatabaseSpecific\WeeksPlanningDBSpecific.csproj" />
       <ProjectReference Include="..\Framework\DependencyInjection.Runner\DependencyInjection.Runner.csproj" />
       <ProjectReference Include="..\Framework\ORM\ORM.csproj" />
       <ProjectReference Include="..\WeeksPlanning.Core\WeeksPlanning.Core.csproj" />
