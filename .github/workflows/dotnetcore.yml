@@ -17,5 +17,5 @@ jobs:
       run: dotnet restore
       working-directory: ./WeeksPlanning
     - name: Build with dotnet
-      run: dotnet build --configuration Release
+      run: dotnet build --no-restore --configuration Release
       working-directory: ./WeeksPlanning
