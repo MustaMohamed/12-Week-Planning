@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Threading.Tasks;
 using DependencyInjection.Config.Attributes;
 using ORM;
-using SD.LLBLGen.Pro.LinqSupportClasses;
 using WeeksPlanning.Core.Repositories;
 using WeeksPlanning.Entity.EntityClasses;
 
