@@ -8,11 +8,11 @@ namespace WeeksPlanning.Core.Core
     {
         long GetCount();
         long GetCount(Expression<Func<T, bool>> expression);
-        T Get(int id);
+        IQueryable<T> Get(long id);
         IQueryable<T> GetAll();
-        T Add(T entity);
-        T Update(T entity);
+        IQueryable<T> Add(T entity);
+        IQueryable<T> Update(T entity);
         void Delete(T entity);
-        void Delete(int id);
+        void Delete(long id);
     }
 }

@@ -105,6 +105,27 @@
       </LastUsedPreferences>
     </OutputType>
   </CodeGenerationCyclePreferences>
+  <OutputSettingValues>
+    <SettingValues>
+      <SettingValue Name="1:AdapterDbGenericSubFolderName" Value="DatabaseGeneric" Type="18" />
+      <SettingValue Name="1:AdapterDbSpecificNamespaceSuffix" Value="DatabaseSpecific" Type="18" />
+      <SettingValue Name="1:AdapterDbSpecificProjectFileSuffix" Value="DBSpecific" Type="18" />
+      <SettingValue Name="1:AdapterDbSpecificSubFolderName" Value="DatabaseSpecific" Type="18" />
+      <SettingValue Name="1:ConvertNulledReferenceTypesToDefaultValue" Value="true" Type="3" />
+      <SettingValue Name="1:EntityBaseClassNameDefault" Value="CommonEntityBase" Type="18" />
+      <SettingValue Name="1:FieldPropertyIsPublicDefault" Value="true" Type="3" />
+      <SettingValue Name="1:GenerateAsNullableTypeDefault" Value="true" Type="3" />
+      <SettingValue Name="1:GenerateEntityFieldFactory" Value="false" Type="3" />
+      <SettingValue Name="1:GenerateEntityFieldsFactory" Value="false" Type="3" />
+      <SettingValue Name="1:InlineValueTypedFields" Value="true" Type="3" />
+      <SettingValue Name="1:LazyLoadingWithoutResultReturnsNew" Value="false" Type="3" />
+      <SettingValue Name="1:NavigatorPropertyIsPublicDefault" Value="true" Type="3" />
+      <SettingValue Name="1:SupportedActionCombinations" Value="0,1,2,3,4,5,6,7" Type="18" />
+      <SettingValue Name="1:TdlEmitTimeDateInOutputFiles" Value="false" Type="3" />
+      <SettingValue Name="1:TypedListOutputTypeDefault" Value="PocoWithQuerySpecQuery" Type="18" />
+      <SettingValue Name="1:TypedViewOutputTypeDefault" Value="PocoWithQuerySpecQuery" Type="18" />
+    </SettingValues>
+  </OutputSettingValues>
   <CodeGenerationMetaDataDefaults>
     <TargetElement Type="256">
       <Defaults>
@@ -144,12 +165,12 @@
       </EntityDefinition>
     </EntityDefinitions>
     <Relationships>
-      <NormalRelationship Name="Plan.User-User.Plans" Start=":Plan" End=":User" StartNavigator="User" EndNavigator="Plans" Type="4" EndIsOptional="true">
+      <NormalRelationship Name="Plan.CreatedByUser-User.CreatedPlans" Start=":Plan" End=":User" StartNavigator="CreatedByUser" EndNavigator="CreatedPlans" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="CreatedByUserId" PkField="Id" />
         </FieldRelationships>
       </NormalRelationship>
-      <NormalRelationship Name="Plan.User1-User.Plans1" Start=":Plan" End=":User" StartNavigator="User1" EndNavigator="Plans1" Type="4" EndIsOptional="true">
+      <NormalRelationship Name="Plan.ModifiedByUser-User.ModifiedPlans" Start=":Plan" End=":User" StartNavigator="ModifiedByUser" EndNavigator="ModifiedPlans" Type="4" EndIsOptional="true">
         <FieldRelationships>
           <FieldFieldRelationship FkField="LastModifiedByUserId" PkField="Id" />
         </FieldRelationships>
@@ -170,9 +191,9 @@
         <Sequence Name="@@IDENTITY" />
       </SystemSequences>
       <Catalogs>
-        <Catalog Name="WeeksPlanning" SyncSource="2">
+        <Catalog Name="WeeksPlanning">
           <Schemas>
-            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2020-02-09T20:20:32.1076678Z">
+            <Schema Name="dbo" SyncSource="2" LastSyncWithDatabase="2020-02-14T17:11:57.0804698Z">
               <Tables>
                 <Table Name="Plan">
                   <PkConstraintName Name="PK_Plan" />
@@ -256,4 +277,163 @@
     </MappingStore>
   </MappingStores>
   <ModelViews />
+  <DerivedModels>
+    <DerivedModel Name="View" ObjectID="6da945b4-45c7-4e4b-aa9b-b3c144752635" TargetFrameworkName="DTO Class Model" UseLegacyDefaults="false">
+      <CodeGenerationMetaDataDefaults>
+        <TargetElement Type="32768">
+          <Defaults>
+            <Attributes>
+              <Attribute Value="Serializable" />
+              <Attribute Value="DataContract" />
+            </Attributes>
+          </Defaults>
+        </TargetElement>
+        <TargetElement Type="65536">
+          <Defaults>
+            <Attributes>
+              <Attribute Value="Serializable" />
+              <Attribute Value="DataContract" />
+            </Attributes>
+          </Defaults>
+        </TargetElement>
+        <TargetElement Type="131072">
+          <Defaults>
+            <Attributes>
+              <Attribute Value="DataMember" />
+            </Attributes>
+          </Defaults>
+        </TargetElement>
+        <TargetElement Type="262144">
+          <Defaults>
+            <Attributes>
+              <Attribute Value="DataMember" />
+            </Attributes>
+          </Defaults>
+        </TargetElement>
+        <TargetElement Type="524288">
+          <Defaults>
+            <Attributes>
+              <Attribute Value="DataMember" />
+            </Attributes>
+          </Defaults>
+        </TargetElement>
+      </CodeGenerationMetaDataDefaults>
+      <Settings>
+        <Property Name="DerivedElementClassNameSuffix" Value="" />
+        <Property Name="PrefixDenormalizedFieldsWithNavigatorName" Value="true" />
+      </Settings>
+      <CodeGenerationCyclePreferences OutputType="3">
+        <LastUsedPreferences>
+          <DestinationRootFolder Value=".\" />
+          <FrameworkName Value="DTO Class Model" />
+          <LanguageName Value="C#" />
+          <PlatformName Value=".NET Standard 2.0" />
+          <PresetName Value="SD.DTOClasses.ReadOnlyDTOs" />
+          <RootNamespace Value="View" />
+          <TemplateGroup Value="General" />
+          <TemplateBindings>
+            <Binding Name="SD.DTOClassModel.NETStandard20" />
+            <Binding Name="SD.DTOClassModel" />
+            <Binding Name="SD.TemplateBindings.General" />
+          </TemplateBindings>
+        </LastUsedPreferences>
+      </CodeGenerationCyclePreferences>
+      <Documents>
+        <Document Name="PlanView">
+          <RootEntity Entity=":Plan" />
+          <Fields>
+            <Field Name="CreatedByUser">
+              <Document Name="CreatedByUser">
+                <RootEntity Entity=":User" NavigatorPath="CreatedByUser" />
+                <Fields>
+                  <Field Name="DateCreatedUtc">
+                    <EntityField Name="DateCreatedUtc" />
+                  </Field>
+                  <Field Name="Email">
+                    <EntityField Name="Email" />
+                  </Field>
+                  <Field Name="Id">
+                    <EntityField Name="Id" />
+                  </Field>
+                  <Field Name="IsActive">
+                    <EntityField Name="IsActive" />
+                  </Field>
+                  <Field Name="LastLoginDate">
+                    <EntityField Name="LastLoginDate" />
+                  </Field>
+                  <Field Name="LastModifiedUtc">
+                    <EntityField Name="LastModifiedUtc" />
+                  </Field>
+                  <Field Name="Name">
+                    <EntityField Name="Name" />
+                  </Field>
+                  <Field Name="Password">
+                    <EntityField Name="Password" />
+                  </Field>
+                </Fields>
+              </Document>
+            </Field>
+            <Field Name="CreatedByUserId">
+              <EntityField Name="CreatedByUserId" />
+            </Field>
+            <Field Name="DateCreatedUtc">
+              <EntityField Name="DateCreatedUtc" />
+            </Field>
+            <Field Name="DurationInWeeks">
+              <EntityField Name="DurationInWeeks" />
+            </Field>
+            <Field Name="Id">
+              <EntityField Name="Id" />
+            </Field>
+            <Field Name="IsActive">
+              <EntityField Name="IsActive" />
+            </Field>
+            <Field Name="LastModifiedByUserId">
+              <EntityField Name="LastModifiedByUserId" />
+            </Field>
+            <Field Name="LastModifiedUtc">
+              <EntityField Name="LastModifiedUtc" />
+            </Field>
+            <Field Name="ModifiedByUser">
+              <Document Name="ModifiedByUser">
+                <RootEntity Entity=":User" NavigatorPath="ModifiedByUser" />
+                <Fields>
+                  <Field Name="DateCreatedUtc">
+                    <EntityField Name="DateCreatedUtc" />
+                  </Field>
+                  <Field Name="Email">
+                    <EntityField Name="Email" />
+                  </Field>
+                  <Field Name="Id">
+                    <EntityField Name="Id" />
+                  </Field>
+                  <Field Name="IsActive">
+                    <EntityField Name="IsActive" />
+                  </Field>
+                  <Field Name="LastLoginDate">
+                    <EntityField Name="LastLoginDate" />
+                  </Field>
+                  <Field Name="LastModifiedUtc">
+                    <EntityField Name="LastModifiedUtc" />
+                  </Field>
+                  <Field Name="Name">
+                    <EntityField Name="Name" />
+                  </Field>
+                  <Field Name="Password">
+                    <EntityField Name="Password" />
+                  </Field>
+                </Fields>
+              </Document>
+            </Field>
+            <Field Name="Name">
+              <EntityField Name="Name" />
+            </Field>
+            <Field Name="StartingDateUtc">
+              <EntityField Name="StartingDateUtc" />
+            </Field>
+          </Fields>
+        </Document>
+      </Documents>
+    </DerivedModel>
+  </DerivedModels>
 </Project>

@@ -6,6 +6,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Entities\DatabaseGeneric\WeeksPlanning.Entity.csproj" />
+      <ProjectReference Include="..\Entities\View\View.csproj" />
     </ItemGroup>
 
 </Project>

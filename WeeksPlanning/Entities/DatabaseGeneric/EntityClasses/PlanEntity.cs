@@ -7,7 +7,9 @@
 //////////////////////////////////////////////////////////////
 using System;
 using System.ComponentModel;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Xml.Serialization;
 using WeeksPlanning.Entity.HelperClasses;
 using WeeksPlanning.Entity.FactoryClasses;
 using WeeksPlanning.Entity.RelationClasses;
@@ -24,8 +26,8 @@ namespace WeeksPlanning.Entity.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
-		private UserEntity _user;
-		private UserEntity _user1;
+		private UserEntity _createdByUser;
+		private UserEntity _modifiedByUser;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -35,10 +37,10 @@ namespace WeeksPlanning.Entity.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name User</summary>
-			public static readonly string User = "User";
-			/// <summary>Member name User1</summary>
-			public static readonly string User1 = "User1";
+			/// <summary>Member name CreatedByUser</summary>
+			public static readonly string CreatedByUser = "CreatedByUser";
+			/// <summary>Member name ModifiedByUser</summary>
+			public static readonly string ModifiedByUser = "ModifiedByUser";
 		}
 
 		/// <summary>Static meta-data storage for navigator related information</summary>
@@ -47,8 +49,8 @@ namespace WeeksPlanning.Entity.EntityClasses
 			public PlanEntityStaticMetaData()
 			{
 				SetEntityCoreInfo("PlanEntity", InheritanceHierarchyType.None, false, (int)WeeksPlanning.Entity.EntityType.PlanEntity, typeof(PlanEntity), typeof(PlanEntityFactory), false);
-				AddNavigatorMetaData<PlanEntity, UserEntity>("User", "Plans", (a, b) => a._user = b, a => a._user, (a, b) => a.User = b, WeeksPlanning.Entity.RelationClasses.StaticPlanRelations.UserEntityUsingCreatedByUserIdStatic, ()=>new PlanRelations().UserEntityUsingCreatedByUserId, null, new int[] { (int)PlanFieldIndex.CreatedByUserId }, null, true, (int)WeeksPlanning.Entity.EntityType.UserEntity);
-				AddNavigatorMetaData<PlanEntity, UserEntity>("User1", "Plans1", (a, b) => a._user1 = b, a => a._user1, (a, b) => a.User1 = b, WeeksPlanning.Entity.RelationClasses.StaticPlanRelations.UserEntityUsingLastModifiedByUserIdStatic, ()=>new PlanRelations().UserEntityUsingLastModifiedByUserId, null, new int[] { (int)PlanFieldIndex.LastModifiedByUserId }, null, true, (int)WeeksPlanning.Entity.EntityType.UserEntity);
+				AddNavigatorMetaData<PlanEntity, UserEntity>("CreatedByUser", "CreatedPlans", (a, b) => a._createdByUser = b, a => a._createdByUser, (a, b) => a.CreatedByUser = b, WeeksPlanning.Entity.RelationClasses.StaticPlanRelations.UserEntityUsingCreatedByUserIdStatic, ()=>new PlanRelations().UserEntityUsingCreatedByUserId, null, new int[] { (int)PlanFieldIndex.CreatedByUserId }, null, true, (int)WeeksPlanning.Entity.EntityType.UserEntity);
+				AddNavigatorMetaData<PlanEntity, UserEntity>("ModifiedByUser", "ModifiedPlans", (a, b) => a._modifiedByUser = b, a => a._modifiedByUser, (a, b) => a.ModifiedByUser = b, WeeksPlanning.Entity.RelationClasses.StaticPlanRelations.UserEntityUsingLastModifiedByUserIdStatic, ()=>new PlanRelations().UserEntityUsingLastModifiedByUserId, null, new int[] { (int)PlanFieldIndex.LastModifiedByUserId }, null, true, (int)WeeksPlanning.Entity.EntityType.UserEntity);
 			}
 		}
 
@@ -103,11 +105,11 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'User' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoUser() { return CreateRelationInfoForNavigator("User"); }
+		public virtual IRelationPredicateBucket GetRelationInfoCreatedByUser() { return CreateRelationInfoForNavigator("CreatedByUser"); }
 
 		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entity of type 'User' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoUser1() { return CreateRelationInfoForNavigator("User1"); }
+		public virtual IRelationPredicateBucket GetRelationInfoModifiedByUser() { return CreateRelationInfoForNavigator("ModifiedByUser"); }
 		
 		/// <inheritdoc/>
 		protected override EntityStaticMetaDataBase GetEntityStaticMetaData() {	return _staticMetaData; }
@@ -141,11 +143,11 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'User' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathUser { get { return _staticMetaData.GetPrefetchPathElement("User", CommonEntityBase.CreateEntityCollection<UserEntity>()); } }
+		public static IPrefetchPathElement2 PrefetchPathCreatedByUser { get { return _staticMetaData.GetPrefetchPathElement("CreatedByUser", CommonEntityBase.CreateEntityCollection<UserEntity>()); } }
 
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'User' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathUser1 { get { return _staticMetaData.GetPrefetchPathElement("User1", CommonEntityBase.CreateEntityCollection<UserEntity>()); } }
+		public static IPrefetchPathElement2 PrefetchPathModifiedByUser { get { return _staticMetaData.GetPrefetchPathElement("ModifiedByUser", CommonEntityBase.CreateEntityCollection<UserEntity>()); } }
 
 		/// <summary>The CreatedByUserId property of the Entity Plan<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "Plan"."CreatedByUserId".<br/>Table field type characteristics (type, precision, scale, length): BigInt, 19, 0, 0.<br/>Table field behavior characteristics (is nullable, is PK, is identity): true, false, false</remarks>
@@ -220,18 +222,18 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Gets / sets related entity of type 'UserEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
-		public virtual UserEntity User
+		public virtual UserEntity CreatedByUser
 		{
-			get { return _user; }
-			set { SetSingleRelatedEntityNavigator(value, "User"); }
+			get { return _createdByUser; }
+			set { SetSingleRelatedEntityNavigator(value, "CreatedByUser"); }
 		}
 
 		/// <summary>Gets / sets related entity of type 'UserEntity' which has to be set using a fetch action earlier. If no related entity is set for this property, null is returned..<br/><br/></summary>
 		[Browsable(false)]
-		public virtual UserEntity User1
+		public virtual UserEntity ModifiedByUser
 		{
-			get { return _user1; }
-			set { SetSingleRelatedEntityNavigator(value, "User1"); }
+			get { return _modifiedByUser; }
+			set { SetSingleRelatedEntityNavigator(value, "ModifiedByUser"); }
 		}
 
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
@@ -276,13 +278,13 @@ namespace WeeksPlanning.Entity.RelationClasses
 		/// <summary>Returns a new IEntityRelation object, between PlanEntity and UserEntity over the m:1 relation they have, using the relation between the fields: Plan.CreatedByUserId - User.Id</summary>
 		public virtual IEntityRelation UserEntityUsingCreatedByUserId
 		{
-			get	{ return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.ManyToOne, "User", false, new[] { UserFields.Id, PlanFields.CreatedByUserId }); }
+			get	{ return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.ManyToOne, "CreatedByUser", false, new[] { UserFields.Id, PlanFields.CreatedByUserId }); }
 		}
 
 		/// <summary>Returns a new IEntityRelation object, between PlanEntity and UserEntity over the m:1 relation they have, using the relation between the fields: Plan.LastModifiedByUserId - User.Id</summary>
 		public virtual IEntityRelation UserEntityUsingLastModifiedByUserId
 		{
-			get	{ return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.ManyToOne, "User1", false, new[] { UserFields.Id, PlanFields.LastModifiedByUserId }); }
+			get	{ return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.ManyToOne, "ModifiedByUser", false, new[] { UserFields.Id, PlanFields.LastModifiedByUserId }); }
 		}
 
 	}

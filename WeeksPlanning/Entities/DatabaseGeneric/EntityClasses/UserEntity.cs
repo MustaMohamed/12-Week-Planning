@@ -26,8 +26,8 @@ namespace WeeksPlanning.Entity.EntityClasses
 		// __LLBLGENPRO_USER_CODE_REGION_START AdditionalInterfaces
 		// __LLBLGENPRO_USER_CODE_REGION_END	
 	{
-		private EntityCollection<PlanEntity> _plans;
-		private EntityCollection<PlanEntity> _plans1;
+		private EntityCollection<PlanEntity> _createdPlans;
+		private EntityCollection<PlanEntity> _modifiedPlans;
 
 		// __LLBLGENPRO_USER_CODE_REGION_START PrivateMembers
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -37,10 +37,10 @@ namespace WeeksPlanning.Entity.EntityClasses
 		/// <summary>All names of fields mapped onto a relation. Usable for in-memory filtering</summary>
 		public static partial class MemberNames
 		{
-			/// <summary>Member name Plans</summary>
-			public static readonly string Plans = "Plans";
-			/// <summary>Member name Plans1</summary>
-			public static readonly string Plans1 = "Plans1";
+			/// <summary>Member name CreatedPlans</summary>
+			public static readonly string CreatedPlans = "CreatedPlans";
+			/// <summary>Member name ModifiedPlans</summary>
+			public static readonly string ModifiedPlans = "ModifiedPlans";
 		}
 
 		/// <summary>Static meta-data storage for navigator related information</summary>
@@ -49,8 +49,8 @@ namespace WeeksPlanning.Entity.EntityClasses
 			public UserEntityStaticMetaData()
 			{
 				SetEntityCoreInfo("UserEntity", InheritanceHierarchyType.None, false, (int)WeeksPlanning.Entity.EntityType.UserEntity, typeof(UserEntity), typeof(UserEntityFactory), false);
-				AddNavigatorMetaData<UserEntity, EntityCollection<PlanEntity>>("Plans", a => a._plans, (a, b) => a._plans = b, a => a.Plans, () => new UserRelations().PlanEntityUsingCreatedByUserId, typeof(PlanEntity), (int)WeeksPlanning.Entity.EntityType.PlanEntity);
-				AddNavigatorMetaData<UserEntity, EntityCollection<PlanEntity>>("Plans1", a => a._plans1, (a, b) => a._plans1 = b, a => a.Plans1, () => new UserRelations().PlanEntityUsingLastModifiedByUserId, typeof(PlanEntity), (int)WeeksPlanning.Entity.EntityType.PlanEntity);
+				AddNavigatorMetaData<UserEntity, EntityCollection<PlanEntity>>("CreatedPlans", a => a._createdPlans, (a, b) => a._createdPlans = b, a => a.CreatedPlans, () => new UserRelations().PlanEntityUsingCreatedByUserId, typeof(PlanEntity), (int)WeeksPlanning.Entity.EntityType.PlanEntity);
+				AddNavigatorMetaData<UserEntity, EntityCollection<PlanEntity>>("ModifiedPlans", a => a._modifiedPlans, (a, b) => a._modifiedPlans = b, a => a.ModifiedPlans, () => new UserRelations().PlanEntityUsingLastModifiedByUserId, typeof(PlanEntity), (int)WeeksPlanning.Entity.EntityType.PlanEntity);
 			}
 		}
 
@@ -105,11 +105,11 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'Plan' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoPlans() { return CreateRelationInfoForNavigator("Plans"); }
+		public virtual IRelationPredicateBucket GetRelationInfoCreatedPlans() { return CreateRelationInfoForNavigator("CreatedPlans"); }
 
 		/// <summary>Creates a new IRelationPredicateBucket object which contains the predicate expression and relation collection to fetch the related entities of type 'Plan' to this entity.</summary>
 		/// <returns></returns>
-		public virtual IRelationPredicateBucket GetRelationInfoPlans1() { return CreateRelationInfoForNavigator("Plans1"); }
+		public virtual IRelationPredicateBucket GetRelationInfoModifiedPlans() { return CreateRelationInfoForNavigator("ModifiedPlans"); }
 		
 		/// <inheritdoc/>
 		protected override EntityStaticMetaDataBase GetEntityStaticMetaData() {	return _staticMetaData; }
@@ -143,11 +143,11 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'Plan' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathPlans { get { return _staticMetaData.GetPrefetchPathElement("Plans", CommonEntityBase.CreateEntityCollection<PlanEntity>()); } }
+		public static IPrefetchPathElement2 PrefetchPathCreatedPlans { get { return _staticMetaData.GetPrefetchPathElement("CreatedPlans", CommonEntityBase.CreateEntityCollection<PlanEntity>()); } }
 
 		/// <summary>Creates a new PrefetchPathElement2 object which contains all the information to prefetch the related entities of type 'Plan' for this entity.</summary>
 		/// <returns>Ready to use IPrefetchPathElement2 implementation.</returns>
-		public static IPrefetchPathElement2 PrefetchPathPlans1 { get { return _staticMetaData.GetPrefetchPathElement("Plans1", CommonEntityBase.CreateEntityCollection<PlanEntity>()); } }
+		public static IPrefetchPathElement2 PrefetchPathModifiedPlans { get { return _staticMetaData.GetPrefetchPathElement("ModifiedPlans", CommonEntityBase.CreateEntityCollection<PlanEntity>()); } }
 
 		/// <summary>The DateCreatedUtc property of the Entity User<br/><br/></summary>
 		/// <remarks>Mapped on  table field: "User"."DateCreatedUtc".<br/>Table field type characteristics (type, precision, scale, length): DateTime, 0, 0, 0.<br/>Table field behavior characteristics (is nullable, is PK, is identity): false, false, false</remarks>
@@ -214,11 +214,11 @@ namespace WeeksPlanning.Entity.EntityClasses
 
 		/// <summary>Gets the EntityCollection with the related entities of type 'PlanEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
 		[TypeContainedAttribute(typeof(PlanEntity))]
-		public virtual EntityCollection<PlanEntity> Plans { get { return GetOrCreateEntityCollection<PlanEntity, PlanEntityFactory>("User", true, false, ref _plans); } }
+		public virtual EntityCollection<PlanEntity> CreatedPlans { get { return GetOrCreateEntityCollection<PlanEntity, PlanEntityFactory>("CreatedByUser", true, false, ref _createdPlans); } }
 
 		/// <summary>Gets the EntityCollection with the related entities of type 'PlanEntity' which are related to this entity via a relation of type '1:n'. If the EntityCollection hasn't been fetched yet, the collection returned will be empty.<br/><br/></summary>
 		[TypeContainedAttribute(typeof(PlanEntity))]
-		public virtual EntityCollection<PlanEntity> Plans1 { get { return GetOrCreateEntityCollection<PlanEntity, PlanEntityFactory>("User1", true, false, ref _plans1); } }
+		public virtual EntityCollection<PlanEntity> ModifiedPlans { get { return GetOrCreateEntityCollection<PlanEntity, PlanEntityFactory>("ModifiedByUser", true, false, ref _modifiedPlans); } }
 
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomEntityCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
@@ -259,13 +259,13 @@ namespace WeeksPlanning.Entity.RelationClasses
 		/// <summary>Returns a new IEntityRelation object, between UserEntity and PlanEntity over the 1:n relation they have, using the relation between the fields: User.Id - Plan.CreatedByUserId</summary>
 		public virtual IEntityRelation PlanEntityUsingCreatedByUserId
 		{
-			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "Plans", true, new[] { UserFields.Id, PlanFields.CreatedByUserId }); }
+			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "CreatedPlans", true, new[] { UserFields.Id, PlanFields.CreatedByUserId }); }
 		}
 
 		/// <summary>Returns a new IEntityRelation object, between UserEntity and PlanEntity over the 1:n relation they have, using the relation between the fields: User.Id - Plan.LastModifiedByUserId</summary>
 		public virtual IEntityRelation PlanEntityUsingLastModifiedByUserId
 		{
-			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "Plans1", true, new[] { UserFields.Id, PlanFields.LastModifiedByUserId }); }
+			get { return ModelInfoProviderSingleton.GetInstance().CreateRelation(RelationType.OneToMany, "ModifiedPlans", true, new[] { UserFields.Id, PlanFields.LastModifiedByUserId }); }
 		}
 
 	}

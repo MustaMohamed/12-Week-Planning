@@ -5,6 +5,8 @@
     </PropertyGroup>
 
     <ItemGroup>
+      <ProjectReference Include="..\Entities\View.Persistence\View.Persistence.csproj" />
+      <ProjectReference Include="..\Entities\View\View.csproj" />
       <ProjectReference Include="..\Framework\DependencyInjection.Config\DependencyInjection.Config.csproj" />
       <ProjectReference Include="..\WeeksPlanning.Core\WeeksPlanning.Core.csproj" />
     </ItemGroup>

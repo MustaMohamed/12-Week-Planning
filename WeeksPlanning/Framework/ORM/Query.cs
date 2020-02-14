@@ -16,5 +16,14 @@ namespace ORM
             DataAccessAdapter adapter = new DataAccessAdapter();
             return await query(new LinqMetaData(adapter));
         }
+
+        public static T Get<T>(Func<LinqMetaData, T> query, IDataAccessAdapter transactionAdapter = null)
+        {
+            if (transactionAdapter != null)
+                return query(new LinqMetaData(transactionAdapter));
+
+            DataAccessAdapter adapter = new DataAccessAdapter();
+            return query(new LinqMetaData(adapter));
+        }
     }
 }

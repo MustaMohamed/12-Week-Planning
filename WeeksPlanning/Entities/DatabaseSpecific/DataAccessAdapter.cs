@@ -17,7 +17,7 @@ namespace WeeksPlanning.Entity.DatabaseSpecific
 	/// <remarks>Use a DataAccessAdapter object solely per thread, and per connection. A DataAccessAdapter object contains 1 active connection 
 	/// and no thread-access scheduling code. This means that you need to create a new DataAccessAdapter object if you want to utilize
 	/// in another thread a new connection and a new transaction or want to open a new connection.</remarks>
-	public partial class DataAccessAdapter : DataAccessAdapterBase, IDisposable, IDataAccessAdapter
+	public partial class DataAccessAdapter : DataAccessAdapterBase
 	{
 		/// <summary>The name of the key in the *.config file of the executing application which contains the connection string.</summary>
 		/// <remarks>Default: the value set in the LLBLGen Pro project properties</remarks>
@@ -134,5 +134,6 @@ namespace WeeksPlanning.Entity.DatabaseSpecific
 
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDataAccessAdapterCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
+
 	}
 }
