@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace WeeksPlanning.Migration
+﻿namespace WeeksPlanning.Migration
 {
     public class Tables
     {

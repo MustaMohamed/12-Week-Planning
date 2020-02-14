@@ -1,9 +1,8 @@
 ﻿using System;
-using System.IO;
-using System.Threading.Tasks;
 using FluentMigrator.Runner;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WeeksPlanning.Migration.Migrations;
 
 namespace WeeksPlanning.Migration
 {
@@ -52,7 +51,7 @@ namespace WeeksPlanning.Migration
                     // Set the connection string
                     .WithGlobalConnectionString(GetConnectionString())
                     // Define the assembly containing the migrations
-                    .ScanIn(typeof(Migrations._002_Plan).Assembly).For.Migrations())
+                    .ScanIn(typeof(_002_Plan).Assembly).For.Migrations())
                 // Enable logging to console in the FluentMigrator way
                 .AddLogging(lb => lb.AddFluentMigratorConsole())
                 // Build the service provider
@@ -76,8 +75,9 @@ namespace WeeksPlanning.Migration
 
         private static string GetConnectionString()
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] {@"bin\"}, StringSplitOptions.None)[0];
-            ;
+            var path = AppDomain.CurrentDomain.BaseDirectory
+                .Split(new[] {@"bin\"}, StringSplitOptions.None)[0];
+            
             var builder = new ConfigurationBuilder()
                 .SetBasePath(path)
                 .AddJsonFile("appsettings.json");

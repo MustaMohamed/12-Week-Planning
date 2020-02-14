@@ -1,7 +1,7 @@
 ﻿using DependencyInjection.Config.Attributes;
 using WeeksPlanning.Core.Services;
 
-namespace WeeksPlanning.Repositories
+namespace WeeksPlanning.Services
 {
     [CreateSingleton]
     public class PlanService : IPlanService

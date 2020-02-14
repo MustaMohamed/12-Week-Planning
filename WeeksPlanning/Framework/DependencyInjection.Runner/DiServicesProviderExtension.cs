@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DependencyInjection.Config.Attributes;
@@ -12,20 +11,16 @@ namespace DependencyInjection.Runner
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services)
         {
-            var path = AppDomain.CurrentDomain.BaseDirectory.Split(new String[] {@"bin\"}, StringSplitOptions.None)[0];
-
-            var Ass = AppDomain.CurrentDomain.GetAssemblies()
+            var assemblies = AppDomain.CurrentDomain.GetAssemblies()
                 .Where(x =>
                 {
                     string name = x.GetName().Name;
                     return name.Contains("WeeksPlanning");
                 }).ToList();
 
-            Ass.Add(Assembly.Load("WeeksPlanning.Core"));
-            Ass.Add(Assembly.Load("WeeksPlanning.Repositories"));
-            Ass.Add(Assembly.Load("WeeksPlanning.Services"));
-            
-            var assemblies = Ass;
+            assemblies.Add(Assembly.Load("WeeksPlanning.Core"));
+            assemblies.Add(Assembly.Load("WeeksPlanning.Repositories"));
+            assemblies.Add(Assembly.Load("WeeksPlanning.Services"));
 
             // Scoped
             var enumerable = assemblies.ToList();
@@ -70,7 +65,8 @@ namespace DependencyInjection.Runner
                 .ForEach(s =>
                 {
                     var inter = s.GetInterfaces().FirstOrDefault(i => i.Name.Equals($"I{s.Name}"));
-                    if (inter != null){
+                    if (inter != null)
+                    {
                         services.AddTransient(inter, s);
                     }
                     else

@@ -134,10 +134,5 @@ namespace WeeksPlanning.Entity.DatabaseSpecific
 
 		// __LLBLGENPRO_USER_CODE_REGION_START CustomDataAccessAdapterCode
 		// __LLBLGENPRO_USER_CODE_REGION_END
-
-		public void Dispose()
-		{
-			throw new NotImplementedException();
-		}
 	}
 }
