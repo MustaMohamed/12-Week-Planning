@@ -22,7 +22,8 @@ namespace ORM
             if (transactionAdapter != null)
                 return query(new LinqMetaData(transactionAdapter));
 
-            using DataAccessAdapter adapter = new DataAccessAdapter();
+            // using DataAccessAdapter adapter = new DataAccessAdapter();
+            DataAccessAdapter adapter = new DataAccessAdapter();
             return query(new LinqMetaData(adapter));
         }
 
@@ -49,7 +50,8 @@ namespace ORM
             if (transactionAdapter != null)
                 return cmd(transactionAdapter);
 
-            using DataAccessAdapter adapter = new DataAccessAdapter();
+            // using DataAccessAdapter adapter = new DataAccessAdapter();
+            DataAccessAdapter adapter = new DataAccessAdapter();
             return cmd(adapter);
         }
         

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using DependencyInjection.Config.Attributes;
@@ -33,7 +34,15 @@ namespace WeeksPlanning.Repositories
 
         public IQueryable<PlanEntity> Add(PlanEntity entity)
         {
-            throw new NotImplementedException();
+            return OrmOperationFactory.DoCommand( adapter =>
+            {
+                var result = adapter.SaveEntity(entity, true); 
+                IQueryable<PlanEntity> items = new List<PlanEntity>
+                {
+                    entity
+                }.AsQueryable();
+                return items;
+            });
         }
 
         public IQueryable<PlanEntity> Update(PlanEntity entity)
