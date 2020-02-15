@@ -37,10 +37,7 @@ namespace WeeksPlanning.Repositories
             return OrmOperationFactory.DoCommand( adapter =>
             {
                 var result = adapter.SaveEntity(entity, true); 
-                IQueryable<PlanEntity> items = new List<PlanEntity>
-                {
-                    entity
-                }.AsQueryable();
+                IQueryable<PlanEntity> items = new List<PlanEntity> {entity}.AsQueryable();
                 return items;
             });
         }
