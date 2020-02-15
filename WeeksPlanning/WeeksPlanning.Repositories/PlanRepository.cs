@@ -13,22 +13,22 @@ namespace WeeksPlanning.Repositories
     {
         public long GetCount()
         {
-            return Query.Get(meta => meta.Plan.LongCount());
+            return OrmOperationFactory.GetQuery(meta => meta.Plan.LongCount());
         }
 
         public long GetCount(Expression<Func<PlanEntity, bool>> expression)
         {
-            return Query.Get(meta => meta.Plan.Where(expression).LongCount());
+            return OrmOperationFactory.GetQuery(meta => meta.Plan.Where(expression).LongCount());
         }
 
         public IQueryable<PlanEntity> Get(long id)
         {
-            return Query.Get(meta => meta.Plan.Where(p => p.Id == id));
+            return OrmOperationFactory.GetQuery(meta => meta.Plan.Where(p => p.Id == id));
         }
 
         public IQueryable<PlanEntity> GetAll()
         {
-            return Query.Get(meta => meta.Plan);
+            return OrmOperationFactory.GetQuery(meta => meta.Plan);
         }
 
         public IQueryable<PlanEntity> Add(PlanEntity entity)
