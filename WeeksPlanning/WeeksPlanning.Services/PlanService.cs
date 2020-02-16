@@ -5,7 +5,7 @@ using Framework.DependencyInjection.Attributes;
 using SD.LLBLGen.Pro.LinqSupportClasses;
 using View.DtoClasses;
 using View.Persistence;
-using WeeksPlanning.Core.Features.Plan;
+using WeeksPlanning.Core.Features.Plan.Models;
 using WeeksPlanning.Core.Repositories;
 using WeeksPlanning.Core.Services;
 
@@ -38,7 +38,7 @@ namespace WeeksPlanning.Services
             return item;
         }
 
-        public async Task<PlanView> AddPlanAsync(PlanInput input)
+        public async Task<PlanView> AddPlanAsync(NewPlanInput input)
         {
             var entity = input.ToEntity();
             var result = _planRepository.Add(entity);

@@ -76,6 +76,7 @@ namespace Framework.DependencyInjection
                 });
 
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            
             return services;
         }
     }
