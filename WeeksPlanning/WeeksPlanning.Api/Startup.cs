@@ -1,5 +1,6 @@
 using System.Data.SqlClient;
 using System.Diagnostics;
+using Framework.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -7,7 +8,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SD.LLBLGen.Pro.DQE.SqlServer;
 using SD.LLBLGen.Pro.ORMSupportClasses;
-using DependencyInjection.Runner;
 
 namespace WeekPlanning.Api
 {
@@ -23,7 +23,7 @@ namespace WeekPlanning.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            ConfigurLlbl();
+            ConfigureLlbl();
             services.AddControllers();
             services.AddApplicationServices();
         }
@@ -45,7 +45,7 @@ namespace WeekPlanning.Api
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
 
-        private void ConfigurLlbl()
+        private void ConfigureLlbl()
         {
             string cs = Configuration.GetConnectionString("WeeksPlanning");
             RuntimeConfiguration.AddConnectionString("ConnectionString.SQL Server (SqlClient)", cs);

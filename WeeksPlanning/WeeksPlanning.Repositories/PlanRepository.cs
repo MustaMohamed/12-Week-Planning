@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using DependencyInjection.Config.Attributes;
+using Framework.DependencyInjection.Attributes;
 using ORM;
+using SD.LLBLGen.Pro.LinqSupportClasses;
 using WeeksPlanning.Core.Repositories;
 using WeeksPlanning.Entity.EntityClasses;
 
@@ -34,10 +35,10 @@ namespace WeeksPlanning.Repositories
 
         public IQueryable<PlanEntity> Add(PlanEntity entity)
         {
-            return OrmOperationFactory.DoCommand( adapter =>
+            return OrmOperationFactory.DoCommand( (adapter, meta) =>
             {
                 var result = adapter.SaveEntity(entity, true); 
-                IQueryable<PlanEntity> items = new List<PlanEntity> {entity}.AsQueryable();
+                IQueryable<PlanEntity> items = meta.Plan.Where(p => p.Id == entity.Id);
                 return items;
             });
         }

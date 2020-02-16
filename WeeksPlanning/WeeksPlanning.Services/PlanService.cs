@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using DependencyInjection.Config.Attributes;
+using Framework.DependencyInjection.Attributes;
 using SD.LLBLGen.Pro.LinqSupportClasses;
 using View.DtoClasses;
 using View.Persistence;
+using WeeksPlanning.Core.Features.Plan;
 using WeeksPlanning.Core.Repositories;
 using WeeksPlanning.Core.Services;
-using WeeksPlanning.Entity.EntityClasses;
 
 namespace WeeksPlanning.Services
 {
@@ -33,16 +33,17 @@ namespace WeeksPlanning.Services
         public async Task<PlanView> GetPlanByIdAsync(long planId)
         {
             var result = _planRepository.Get(planId);
-            var items = await result.FirstOrDefaultAsync(p => p.IsActive);
-            var item = items.ProjectToPlanView();
+            var items = result.Where(p => p.IsActive);
+            var item = await items.ProjectToPlanView().FirstOrDefaultAsync();
             return item;
         }
 
-        public async Task<PlanView> AddPlanAsync(PlanEntity entity)
+        public async Task<PlanView> AddPlanAsync(PlanInput input)
         {
+            var entity = input.ToEntity();
             var result = _planRepository.Add(entity);
-            var planEntity = await result.FirstOrDefaultAsync();
-            var item = planEntity.ProjectToPlanView();
+            var planEntity = await result.ProjectToPlanView().FirstOrDefaultAsync();
+            var item = planEntity;
             return item;
         }
     }

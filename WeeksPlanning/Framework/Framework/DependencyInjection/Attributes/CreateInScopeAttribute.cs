@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DependencyInjection.Config.Attributes
+namespace Framework.DependencyInjection.Attributes
 {
     [AttributeUsage(AttributeTargets.Class)]
     public class CreateInScopeAttribute : Attribute

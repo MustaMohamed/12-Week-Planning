@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Reflection;
-using DependencyInjection.Config.Attributes;
+using Framework.DependencyInjection.Attributes;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace DependencyInjection.Runner
+namespace Framework.DependencyInjection
 {
     public static class DiServicesProviderExtension
     {

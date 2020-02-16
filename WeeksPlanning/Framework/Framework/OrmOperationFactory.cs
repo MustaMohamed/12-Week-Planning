@@ -60,7 +60,8 @@ namespace ORM
             if (transactionAdapter != null)
                 return  cmd(transactionAdapter, new LinqMetaData(transactionAdapter));
 
-            using DataAccessAdapter adapter = new DataAccessAdapter();
+            DataAccessAdapter adapter = new DataAccessAdapter();
+            // using DataAccessAdapter adapter = new DataAccessAdapter();
             return  cmd(adapter, new LinqMetaData(adapter));
         }
     }
