@@ -4,7 +4,7 @@ using SD.LLBLGen.Pro.ORMSupportClasses;
 using WeeksPlanning.Entity.DatabaseSpecific;
 using WeeksPlanning.Entity.Linq;
 
-namespace ORM
+namespace Framework
 {
     public static class OrmOperationFactory
     {

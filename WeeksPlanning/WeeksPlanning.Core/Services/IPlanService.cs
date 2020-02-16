@@ -2,7 +2,7 @@
 using System.Threading.Tasks;
 using View.DtoClasses;
 using WeeksPlanning.Core.Core;
-using WeeksPlanning.Core.Features.Plan;
+using WeeksPlanning.Core.Features.Plan.Models;
 
 namespace WeeksPlanning.Core.Services
 {
@@ -12,6 +12,6 @@ namespace WeeksPlanning.Core.Services
         
         Task<PlanView> GetPlanByIdAsync(long planId);
 
-        Task<PlanView> AddPlanAsync(PlanInput entity);
+        Task<PlanView> AddPlanAsync(NewPlanInput entity);
     }
 }
