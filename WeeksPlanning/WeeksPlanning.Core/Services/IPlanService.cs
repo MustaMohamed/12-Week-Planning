@@ -13,6 +13,8 @@ namespace WeeksPlanning.Core.Services
         Task<PlanView> GetPlanByIdAsync(int planId);
 
         Task<PlanView> AddPlanAsync(NewPlanInput entity);
+        
+        Task<PlanView> UpdatePlanAsync(UpdatePlanInput entity);
 
         bool DeletePlan(int planId);
     }

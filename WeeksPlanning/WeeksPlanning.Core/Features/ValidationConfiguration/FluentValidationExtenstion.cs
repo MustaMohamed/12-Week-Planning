@@ -10,7 +10,8 @@ namespace WeeksPlanning.Core.Features.ValidationConfiguration
         public static IServiceCollection AddApplicationValidationServices(this IServiceCollection services)
         {
             services.AddTransient<IValidator<NewPlanInput>, NewPlanInputValidator>();
-            
+            services.AddTransient<IValidator<UpdatePlanInput>, UpdatePlanInputValidator>();
+
             return services;
         }
     }

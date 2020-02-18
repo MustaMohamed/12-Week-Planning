@@ -57,7 +57,24 @@ namespace WeeksPlanning.Repositories
 
         public IQueryable<PlanEntity> Update(PlanEntity entity)
         {
-            throw new NotImplementedException();
+            return OrmOperationFactory.DoCommand((adapter, meta) =>
+            {
+
+                try
+                {
+                    var result = adapter.SaveEntity(entity, true);
+                    if (result)
+                    {
+                        IQueryable<PlanEntity> items = meta.Plan.Where(p => p.Id == entity.Id);
+                        return items;
+                    }
+                    throw new Exception("Can't save entity");
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            });
         }
 
         public bool Delete(PlanEntity entity)

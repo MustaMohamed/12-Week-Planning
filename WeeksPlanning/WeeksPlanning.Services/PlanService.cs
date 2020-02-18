@@ -47,6 +47,15 @@ namespace WeeksPlanning.Services
             return item;
         }
 
+        public async Task<PlanView> UpdatePlanAsync(UpdatePlanInput input)
+        {
+            var entity = input.ToEntity();
+            var result = _planRepository.Update(entity);
+            var planEntity = await result.ProjectToPlanView().FirstOrDefaultAsync();
+            var item = planEntity;
+            return item;
+        }
+
         public bool DeletePlan(int planId)
         {
             var result =  _planRepository.Delete(planId);

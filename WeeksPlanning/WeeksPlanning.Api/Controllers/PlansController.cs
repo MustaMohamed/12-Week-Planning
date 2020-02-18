@@ -16,11 +16,13 @@ namespace WeekPlanning.Api.Controllers
     {
         private readonly IPlanService _planService;
         private readonly IValidator<NewPlanInput> _newPlanInputValidator;
+        private readonly IValidator<UpdatePlanInput> _updatePlanInputValidator;
 
-        public PlansController(IPlanService planService, IValidator<NewPlanInput> newPlanInputValidator)
+        public PlansController(IPlanService planService, IValidator<NewPlanInput> newPlanInputValidator, IValidator<UpdatePlanInput> updatePlanInputValidator)
         {
             _planService = planService;
             _newPlanInputValidator = newPlanInputValidator;
+            _updatePlanInputValidator = updatePlanInputValidator;
         }
 
         [HttpGet]
@@ -66,6 +68,27 @@ namespace WeekPlanning.Api.Controllers
                 if (validationResult.IsValid)
                 {
                     var result = await _planService.AddPlanAsync(newPlanInput);
+                    return result;
+                }
+
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+        
+        [HttpPut]
+        [Route("Update/{id}")]
+        public async Task<ActionResult<PlanView>> Add([FromBody] UpdatePlanInput updatePlanInput, int id)
+        {
+            try
+            {
+                var validationResult = _updatePlanInputValidator.Validate(updatePlanInput);
+                if (validationResult.IsValid)
+                {
+                    var result = await _planService.UpdatePlanAsync(updatePlanInput);
                     return result;
                 }
 
