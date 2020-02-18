@@ -11,7 +11,7 @@ using WeeksPlanning.Core.Services;
 namespace WeekPlanning.Api.Controllers
 {
     [ApiController]
-    [Route("api/[controller]/[action]")]
+    [Route("api/[controller]")]
     public class PlansController : Controller
     {
         private readonly IPlanService _planService;
@@ -57,6 +57,7 @@ namespace WeekPlanning.Api.Controllers
         }
 
         [HttpPost]
+        [Route("Create")]
         public async Task<ActionResult<PlanView>> Add([FromBody] NewPlanInput newPlanInput)
         {
             try
