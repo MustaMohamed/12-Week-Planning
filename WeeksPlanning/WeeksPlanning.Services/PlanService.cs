@@ -30,7 +30,7 @@ namespace WeeksPlanning.Services
             return items;
         }
 
-        public async Task<PlanView> GetPlanByIdAsync(long planId)
+        public async Task<PlanView> GetPlanByIdAsync(int planId)
         {
             var result = _planRepository.Get(planId);
             var items = result.Where(p => p.IsActive);
@@ -45,6 +45,12 @@ namespace WeeksPlanning.Services
             var planEntity = await result.ProjectToPlanView().FirstOrDefaultAsync();
             var item = planEntity;
             return item;
+        }
+
+        public bool DeletePlan(int planId)
+        {
+            var result =  _planRepository.Delete(planId);
+            return result;
         }
     }
 }

@@ -10,8 +10,10 @@ namespace WeeksPlanning.Core.Services
     {
         Task<List<PlanView>> GetAllPlansAsync();
         
-        Task<PlanView> GetPlanByIdAsync(long planId);
+        Task<PlanView> GetPlanByIdAsync(int planId);
 
         Task<PlanView> AddPlanAsync(NewPlanInput entity);
+
+        bool DeletePlan(int planId);
     }
 }

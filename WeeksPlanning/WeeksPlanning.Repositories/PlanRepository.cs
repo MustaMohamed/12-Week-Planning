@@ -3,8 +3,10 @@ using System.Linq;
 using System.Linq.Expressions;
 using Framework;
 using Framework.DependencyInjection.Attributes;
+using SD.LLBLGen.Pro.ORMSupportClasses;
 using WeeksPlanning.Core.Repositories;
 using WeeksPlanning.Entity.EntityClasses;
+using WeeksPlanning.Entity.HelperClasses;
 
 namespace WeeksPlanning.Repositories
 {
@@ -21,7 +23,7 @@ namespace WeeksPlanning.Repositories
             return OrmOperationFactory.GetQuery(meta => meta.Plan.Where(expression).LongCount());
         }
 
-        public IQueryable<PlanEntity> Get(long id)
+        public IQueryable<PlanEntity> Get(int id)
         {
             return OrmOperationFactory.GetQuery(meta => meta.Plan.Where(p => p.Id == id));
         }
@@ -58,14 +60,33 @@ namespace WeeksPlanning.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(PlanEntity entity)
+        public bool Delete(PlanEntity entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(long id)
+        public bool Delete(int id)
         {
-            throw new NotImplementedException();
+            return OrmOperationFactory.DoCommand((adapter, meta) =>
+            {
+
+                try
+                {
+                    var isDeletedBefore = meta.Plan.FirstOrDefault(p => p.Id == id && !p.IsActive);
+                    if (isDeletedBefore != null) return false;
+                    var predicate = new RelationPredicateBucket(PlanFields.Id == id);
+                    var changes = new PlanEntity()
+                    {
+                        IsActive = false
+                    };
+                    var result = adapter.UpdateEntitiesDirectly(changes, predicate);
+                    return result > 0;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
+                }
+            });
         }
     }
 }

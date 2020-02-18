@@ -68,10 +68,27 @@ namespace WeekPlanning.Api.Controllers
                     var result = await _planService.AddPlanAsync(newPlanInput);
                     return result;
                 }
-                else
-                {
-                    return BadRequest();
-                }
+
+                return BadRequest();
+            }
+            catch (Exception e)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, e.Message);
+            }
+        }
+
+        [HttpDelete]
+        [Route("Delete/{id}")]
+        public ActionResult Remove(int id)
+        {
+            try
+            {
+                var result = _planService.DeletePlan(id);
+            
+                if (!result)
+                    return StatusCode(StatusCodes.Status404NotFound);
+            
+                return NoContent();
             }
             catch (Exception e)
             {

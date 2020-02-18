@@ -17,7 +17,7 @@ namespace WeeksPlanning.Repositories
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> Get(long id)
+        public IQueryable<T> Get(int id)
         {
             throw new NotImplementedException();
         }
@@ -37,12 +37,12 @@ namespace WeeksPlanning.Repositories
             throw new NotImplementedException();
         }
 
-        public void Delete(T entity)
+        public bool Delete(T entity)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete(long id)
+        public bool Delete(int id)
         {
             throw new NotImplementedException();
         }
