@@ -4,31 +4,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{E2
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Backend", "Backend", "{145939D5-9B47-45CE-902B-E9B8BD744850}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Migration", "WeeksPlanning.Migration\WeeksPlanning.Migration.csproj", "{E65DEB59-BE51-4852-9DB7-14BAA98E3704}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Migration", "Backend\WeeksPlanning.Migration\WeeksPlanning.Migration.csproj", "{E65DEB59-BE51-4852-9DB7-14BAA98E3704}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Api", "WeeksPlanning.Api\WeeksPlanning.Api.csproj", "{09BB42F9-2B5F-4516-972E-C4558DE3609F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Api", "Backend\WeeksPlanning.Api\WeeksPlanning.Api.csproj", "{09BB42F9-2B5F-4516-972E-C4558DE3609F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{6300B247-2925-4332-BC01-575B088F6EC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Core", "WeeksPlanning.Core\WeeksPlanning.Core.csproj", "{80BA65EF-E6A8-4AF5-9BDD-1FA5F4F3373D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Core", "Backend\WeeksPlanning.Core\WeeksPlanning.Core.csproj", "{80BA65EF-E6A8-4AF5-9BDD-1FA5F4F3373D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Repositories", "WeeksPlanning.Repositories\WeeksPlanning.Repositories.csproj", "{38CA422A-0A27-4653-98A0-AE48A6F8248C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Repositories", "Backend\WeeksPlanning.Repositories\WeeksPlanning.Repositories.csproj", "{38CA422A-0A27-4653-98A0-AE48A6F8248C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Services", "WeeksPlanning.Services\WeeksPlanning.Services.csproj", "{2399D579-133F-42CB-AD3F-F6DC28E4E573}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Services", "Backend\WeeksPlanning.Services\WeeksPlanning.Services.csproj", "{2399D579-133F-42CB-AD3F-F6DC28E4E573}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frameworks", "Frameworks", "{84629665-5A0B-4B69-BB83-3E91F0A9D1D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Framework\Framework\Framework.csproj", "{B21EE847-79EA-498B-8227-A782B7E748E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Framework", "Backend\Framework\Framework\Framework.csproj", "{B21EE847-79EA-498B-8227-A782B7E748E6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Entities", "{A825BE4E-1C81-4BC4-9256-B933431CB35D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Entities", "Backend\Entities", "{A825BE4E-1C81-4BC4-9256-B933431CB35D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.EntityDBSpecific", "Entities\DatabaseSpecific\WeeksPlanning.EntityDBSpecific.csproj", "{A93F7C13-A03A-4829-914B-ED5D5A9390F3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.EntityDBSpecific", "Backend\Entities\DatabaseSpecific\WeeksPlanning.EntityDBSpecific.csproj", "{A93F7C13-A03A-4829-914B-ED5D5A9390F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Entity", "Entities\DatabaseGeneric\WeeksPlanning.Entity.csproj", "{549F305E-FC46-4265-BF3E-0B602CE38477}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Entity", "Backend\Entities\DatabaseGeneric\WeeksPlanning.Entity.csproj", "{549F305E-FC46-4265-BF3E-0B602CE38477}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "Entities\View\View.csproj", "{5A295306-3A4C-4230-A4C1-92DADB4BDA75}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "Backend\Entities\View\View.csproj", "{5A295306-3A4C-4230-A4C1-92DADB4BDA75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View.Persistence", "Entities\View.Persistence\View.Persistence.csproj", "{8C4BE07C-A0E4-474B-8492-90A419014BDB}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View.Persistence", "Backend\Entities\View.Persistence\View.Persistence.csproj", "{8C4BE07C-A0E4-474B-8492-90A419014BDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
