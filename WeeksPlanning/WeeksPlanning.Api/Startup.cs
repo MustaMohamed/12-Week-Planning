@@ -4,6 +4,7 @@ using FluentValidation.AspNetCore;
 using Framework.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -30,6 +31,9 @@ namespace WeekPlanning.Api
                 .AddFluentValidation();
             services.AddApplicationServices();
             services.AddApplicationValidationServices();
+
+            // In production, the React files will be served from this directory
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "Frontend/dist"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,6 +50,18 @@ namespace WeekPlanning.Api
 
             app.UseAuthorization();
 
+            app.UseSpaStaticFiles();
+            
+            app.UseSpa(spa =>
+            {
+                spa.Options.SourcePath = "Frontend";
+                if (env.IsDevelopment())
+                {
+                    // Launch development server for Vue.js
+                    spa.UseReactDevelopmentServer("start");
+                }
+            });
+            
             app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
 
