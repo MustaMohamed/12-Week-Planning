@@ -27,8 +27,9 @@ namespace WeekPlanning.Api
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureLlbl();
-            services.AddControllers()
+            services.AddControllersWithViews()
                 .AddFluentValidation();
+            
             services.AddApplicationServices();
             services.AddApplicationValidationServices();
 
@@ -43,14 +44,23 @@ namespace WeekPlanning.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+                app.UseHsts();
+            }
 
             app.UseHttpsRedirection();
-
-            app.UseRouting();
-
-            app.UseAuthorization();
-
+            
+            app.UseStaticFiles();
             app.UseSpaStaticFiles();
+            
+            app.UseRouting();
+            
+            app.UseAuthorization();
+            
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
             
             app.UseSpa(spa =>
             {
@@ -62,7 +72,6 @@ namespace WeekPlanning.Api
                 }
             });
             
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
         }
 
         private void ConfigureLlbl()
