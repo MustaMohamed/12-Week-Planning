@@ -1,11 +1,11 @@
 ﻿import React, { Component } from 'react';
 import { Container, Placeholder, Table } from 'semantic-ui-react';
 
-interface Props {
+type Props = {
 
 }
 
-interface State {
+type State = {
   plans: any[];
 }
 

@@ -28,7 +28,6 @@
 
     <ItemGroup>
       <Folder Include="Frontend" />
-      <Folder Include="Frontend\src\app\styles" />
     </ItemGroup>
 
     <ItemGroup>

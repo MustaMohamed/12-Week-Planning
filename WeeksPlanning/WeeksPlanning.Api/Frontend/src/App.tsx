@@ -1,12 +1,6 @@
 import React from 'react';
 import Application from './app/Application';
 
-function App() {
-  return (
-    <div className="App">
-      <Application/>
-    </div>
-  );
-}
+const App = () => <Application/>;
 
 export default App;

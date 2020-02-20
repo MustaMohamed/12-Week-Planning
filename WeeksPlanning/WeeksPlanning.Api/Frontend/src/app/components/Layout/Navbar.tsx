@@ -5,7 +5,7 @@ const navs: string[] = ['home', 'about'];
 const authNavs: string[] = ['login', 'signup'];
 
 const Navbar: FC = () => {
-  const [activeItem, setActiveItem]: [string, (name: string) => void] = useState('home');
+  const [activeItem, setActiveItem]: [string, (name: string) => void] = useState<string>('home');
   const handleItemClick = (e: SyntheticEvent, { name }: StrictMenuItemProps) => setActiveItem(name || 'home');
   return (
     <Menu pointing secondary>
