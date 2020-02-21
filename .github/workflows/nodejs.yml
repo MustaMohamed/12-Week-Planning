@@ -35,4 +35,4 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@3.2.1
       with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
-          FOLDER: "./WeeksPlanning/WeeksPlanning.Api/Frontend/build"
+          FOLDER: "WeeksPlanning/WeeksPlanning.Api/Frontend/build"
