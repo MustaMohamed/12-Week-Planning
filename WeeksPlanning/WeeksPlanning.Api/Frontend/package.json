@@ -22,13 +22,15 @@
     "eslint": "^6.8.0",
     "fomantic-ui": "^2.8.3",
     "rimraf": "^3.0.2",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "gulp": "^4.0.2"
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
     "build": "react-scripts build",
-    "test": "cross-env CI=true react-scripts test --env=jsdom",
+    "test": "cross-env CI=true react-scripts test --env=jsdom --passWithNoTests",
     "eject": "react-scripts eject",
+    "build-semantic": "cd \"src/semantic\" && gulp build",
     "lint": "eslint ./src/"
   },
   "eslintConfig": {
