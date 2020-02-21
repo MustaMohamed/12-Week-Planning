@@ -35,3 +35,4 @@ jobs:
       - name: Test frontend app with Jest
         run: yarn test
         working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
+        
