@@ -19,20 +19,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install node packages
       run: yarn
-      working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Api/Frontend"
     - name: Build semantic-ui with gulp
       run: yarn run build-semantic
-      working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Api/Frontend"
     - name: Test frontend app with Jest
       run: yarn test
-      working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
+      working-directory: ./WeeksPlanning.Api/Frontend
       env:
         CI: true
     - name: Build frontend project
       run: yarn build
-      working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Api/Frontend"
     - name: Deploy react frontend on gh-pages
       uses: crazy-max/ghaction-github-pages@v1.3.0
       with:
           token: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
-          build_dir: "WeeksPlanning/WeeksPlanning.Api/Frontend/build"
+          build_dir: "WeeksPlanning.Api/Frontend/build"
