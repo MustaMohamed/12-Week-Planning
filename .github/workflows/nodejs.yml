@@ -1,0 +1,38 @@
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on:  windows-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install node packages
+      run: yarn
+      working-directory: "./WeeksPlanning.Api/Frontend"
+    - name: Build semantic-ui with gulp
+      run: yarn run build-semantic
+      working-directory: "./WeeksPlanning.Api/Frontend"
+    - name: Test frontend app with Jest
+      run: yarn test
+      working-directory: ./WeeksPlanning.Api/Frontend
+      env:
+        CI: true
+    - name: Build frontend project
+      run: yarn build
+      working-directory: "./WeeksPlanning.Api/Frontend"
+    - name: Deploy react frontend on gh-pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN_FOR_DEPLOYING_REPO }}
+          publish_dir: "WeeksPlanning.Api/Frontend/build"
