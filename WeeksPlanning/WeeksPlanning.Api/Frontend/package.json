@@ -1,5 +1,6 @@
 {
-  "name": "app",
+  "name": "weeks-planning",
+  "homepage": "http://mustamohamed.github.io/12-Week-Planning",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
