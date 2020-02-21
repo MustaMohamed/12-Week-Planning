@@ -13,10 +13,8 @@ jobs:
         dotnet-version: 3.1.101
     - name: Restore packages
       run: dotnet restore
-      working-directory: ./WeeksPlanning
     - name: Build with dotnet
       run: dotnet build --no-restore --configuration Release
-      working-directory: ./WeeksPlanning
       
   build-frontend:
     runs-on: windows-latest
@@ -28,11 +26,11 @@ jobs:
           node-version: 12.x
       - name: Build frontend app with Node
         run: yarn
-        working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
+        working-directory: "./WeeksPlanning.Api/Frontend"
       - name: Build semantic-ui with gulp
         run: yarn run build-semantic
-        working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
+        working-directory: "./WeeksPlanning.Api/Frontend"
       - name: Test frontend app with Jest
         run: yarn test
-        working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
+        working-directory: ./WeeksPlanning.Api/Frontend
         
