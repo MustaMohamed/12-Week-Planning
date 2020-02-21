@@ -34,5 +34,5 @@ jobs:
     - name: Deploy react frontend on gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-          personal_token: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
+          personal_token: ${{ secrets.PERSONAL_TOKEN_FOR_DEPLOYING_REPO }}
           publish_dir: "WeeksPlanning.Api/Frontend/build"
