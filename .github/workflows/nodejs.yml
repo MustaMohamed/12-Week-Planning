@@ -36,3 +36,4 @@ jobs:
       with:
           ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
           FOLDER: "WeeksPlanning/WeeksPlanning.Api/Frontend/build"
+          BRANCH: gh-pages
