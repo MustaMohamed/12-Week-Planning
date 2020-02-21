@@ -32,7 +32,7 @@ jobs:
       run: yarn build
       working-directory: "./WeeksPlanning.Api/Frontend"
     - name: Deploy react frontend on gh-pages
-      uses: igolopolosov/github-action-release-github-pages@master
-      env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
-          PROJECT_BUILD_FOLDER: "WeeksPlanning.Api/Frontend/build"
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+          personal_token: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
+          publish_dir: "WeeksPlanning.Api/Frontend/build"
