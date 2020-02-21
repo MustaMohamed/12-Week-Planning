@@ -32,7 +32,7 @@ jobs:
       run: yarn build
       working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
     - name: Deploy react frontend on gh-pages
-      uses: tsunematsu21/actions-publish-gh-pages@v1.0.0
+      uses: crazy-max/ghaction-github-pages@v1.3.0
       with:
           token: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
-          dir: "WeeksPlanning/WeeksPlanning.Api/Frontend/build"
+          build_dir: "WeeksPlanning/WeeksPlanning.Api/Frontend/build"
