@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/12-Week-Planning/static/css/main.54e21ffa.chunk.css",
+    "main.js": "/12-Week-Planning/static/js/main.dc5c8e4e.chunk.js",
+    "main.js.map": "/12-Week-Planning/static/js/main.dc5c8e4e.chunk.js.map",
+    "runtime-main.js": "/12-Week-Planning/static/js/runtime-main.9ec73782.js",
+    "runtime-main.js.map": "/12-Week-Planning/static/js/runtime-main.9ec73782.js.map",
+    "static/js/2.74fe3676.chunk.js": "/12-Week-Planning/static/js/2.74fe3676.chunk.js",
+    "static/js/2.74fe3676.chunk.js.map": "/12-Week-Planning/static/js/2.74fe3676.chunk.js.map",
+    "index.html": "/12-Week-Planning/index.html",
+    "precache-manifest.0e4ff78eaaf3bd8215ddf08cbb77486e.js": "/12-Week-Planning/precache-manifest.0e4ff78eaaf3bd8215ddf08cbb77486e.js",
+    "service-worker.js": "/12-Week-Planning/service-worker.js",
+    "static/css/main.54e21ffa.chunk.css.map": "/12-Week-Planning/static/css/main.54e21ffa.chunk.css.map",
+    "static/js/2.74fe3676.chunk.js.LICENSE.txt": "/12-Week-Planning/static/js/2.74fe3676.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/12-Week-Planning/static/media/outline-icons.ece54318.ttf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.9ec73782.js",
+    "static/js/2.74fe3676.chunk.js",
+    "static/css/main.54e21ffa.chunk.css",
+    "static/js/main.dc5c8e4e.chunk.js"
+  ]
+}
