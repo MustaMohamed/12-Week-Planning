@@ -27,7 +27,7 @@ jobs:
           node-version: 12.x
       - name: Build frontend app with Node
         run: yarn
-        working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
+        working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
       - name: Test frontend app with Jest
         run: yarn test
         working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
