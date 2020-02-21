@@ -3,10 +3,8 @@ name: .NET Core
 on: [push]
 
 jobs:
-  build:
-
+  build-backend:
     runs-on: windows-latest
-
     steps:
     - uses: actions/checkout@v2
     - name: Setup .NET Core
@@ -19,3 +17,17 @@ jobs:
     - name: Build with dotnet
       run: dotnet build --no-restore --configuration Release
       working-directory: ./WeeksPlanning
+      
+  build-frontend:
+    runs-on: windows-latest
+    steps:
+      - name: Setup Node.js for use with actions
+        uses: actions/setup-node@v1.1.0
+        with:
+          node-version: 12.x
+      - name: Build frontend app with Node
+        run: yarn
+        working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
+      - name: Test frontend app with Jest
+        run: yarn test
+        working-directory: ./WeeksPlanning/WeeksPlanning.Api/Frontend
