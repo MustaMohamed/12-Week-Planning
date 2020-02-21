@@ -34,5 +34,5 @@ jobs:
     - name: Deploy react frontend on gh-pages
       uses: crazy-max/ghaction-github-pages@v1.3.0
       with:
-          token: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
+          GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
           build_dir: "WeeksPlanning.Api/Frontend/build"
