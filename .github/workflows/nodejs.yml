@@ -30,8 +30,9 @@ jobs:
         CI: true
     - name: Build frontend project
       run: yarn build
+      working-directory: "./WeeksPlanning/WeeksPlanning.Api/Frontend"
     - name: Deploy react frontend on gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
           deploy_key: ${{ secrets.ACCESS_TOKEN_FOR_DEPLOYING_REPO }}
-          publish_dir: ./build
+          publish_dir: "./WeeksPlanning/WeeksPlanning.Api/Frontend/build"
