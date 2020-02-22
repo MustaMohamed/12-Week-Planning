@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/12-Week-Planning/static/css/main.54e21ffa.chunk.css",
-    "main.js": "/12-Week-Planning/static/js/main.dc5c8e4e.chunk.js",
-    "main.js.map": "/12-Week-Planning/static/js/main.dc5c8e4e.chunk.js.map",
-    "runtime-main.js": "/12-Week-Planning/static/js/runtime-main.9ec73782.js",
-    "runtime-main.js.map": "/12-Week-Planning/static/js/runtime-main.9ec73782.js.map",
-    "static/js/2.74fe3676.chunk.js": "/12-Week-Planning/static/js/2.74fe3676.chunk.js",
-    "static/js/2.74fe3676.chunk.js.map": "/12-Week-Planning/static/js/2.74fe3676.chunk.js.map",
-    "index.html": "/12-Week-Planning/index.html",
-    "precache-manifest.ead0d75e8892787ccbcf445aa747bdde.js": "/12-Week-Planning/precache-manifest.ead0d75e8892787ccbcf445aa747bdde.js",
-    "service-worker.js": "/12-Week-Planning/service-worker.js",
-    "static/css/main.54e21ffa.chunk.css.map": "/12-Week-Planning/static/css/main.54e21ffa.chunk.css.map",
-    "static/js/2.74fe3676.chunk.js.LICENSE.txt": "/12-Week-Planning/static/js/2.74fe3676.chunk.js.LICENSE.txt",
-    "static/media/semantic.min.css": "/12-Week-Planning/static/media/outline-icons.ece54318.ttf"
+    "main.css": "/static/css/main.10e5ff2c.chunk.css",
+    "main.js": "/static/js/main.1789bdc9.chunk.js",
+    "main.js.map": "/static/js/main.1789bdc9.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.7c4b72ae.js",
+    "runtime-main.js.map": "/static/js/runtime-main.7c4b72ae.js.map",
+    "static/js/2.74fe3676.chunk.js": "/static/js/2.74fe3676.chunk.js",
+    "static/js/2.74fe3676.chunk.js.map": "/static/js/2.74fe3676.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f25d9a225a98b528d9e99ebf529b67fd.js": "/precache-manifest.f25d9a225a98b528d9e99ebf529b67fd.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.10e5ff2c.chunk.css.map": "/static/css/main.10e5ff2c.chunk.css.map",
+    "static/js/2.74fe3676.chunk.js.LICENSE.txt": "/static/js/2.74fe3676.chunk.js.LICENSE.txt",
+    "static/media/semantic.min.css": "/static/media/outline-icons.ece54318.ttf"
   },
   "entrypoints": [
-    "static/js/runtime-main.9ec73782.js",
+    "static/js/runtime-main.7c4b72ae.js",
     "static/js/2.74fe3676.chunk.js",
-    "static/css/main.54e21ffa.chunk.css",
-    "static/js/main.dc5c8e4e.chunk.js"
+    "static/css/main.10e5ff2c.chunk.css",
+    "static/js/main.1789bdc9.chunk.js"
   ]
 }
