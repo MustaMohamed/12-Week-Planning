@@ -1,26 +1,23 @@
 ﻿{
-  "$schema": "http://json.schemastore.org/launchsettings.json",
   "iisSettings": {
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:39185",
-      "sslPort": 44358
+      "applicationUrl": "http://localhost:15790",
+      "sslPort": 44322
     }
   },
   "profiles": {
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/Plans",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "WeekPlanning.Api": {
+    "WeeksPlanning.Spa": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/Plans",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

@@ -12,7 +12,7 @@ using SD.LLBLGen.Pro.DQE.SqlServer;
 using SD.LLBLGen.Pro.ORMSupportClasses;
 using WeeksPlanning.Core.Features.ValidationConfiguration;
 
-namespace WeekPlanning.Api
+namespace WeeksPlanning.Spa
 {
     public class Startup
     {
@@ -27,14 +27,13 @@ namespace WeekPlanning.Api
         public void ConfigureServices(IServiceCollection services)
         {
             ConfigureLlbl();
-            services.AddControllersWithViews()
-                .AddFluentValidation();
+            services.AddControllersWithViews().AddFluentValidation();
             
             services.AddApplicationServices();
             services.AddApplicationValidationServices();
 
             // In production, the React files will be served from this directory
-            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "Frontend/dist"; });
+            services.AddSpaStaticFiles(configuration => { configuration.RootPath = "ClientApp/build"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,28 +51,29 @@ namespace WeekPlanning.Api
             }
 
             app.UseHttpsRedirection();
-            
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
-            
+
             app.UseRouting();
-            
-            app.UseAuthorization();
-            
-            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
-            
+
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller}/{action=Index}/{id?}");
+            });
+
             app.UseSpa(spa =>
             {
-                spa.Options.SourcePath = "Frontend";
+                spa.Options.SourcePath = "ClientApp";
+
                 if (env.IsDevelopment())
                 {
-                    // Launch development server for Vue.js
-                    spa.UseReactDevelopmentServer("start");
+                    spa.UseReactDevelopmentServer(npmScript: "start");
                 }
             });
-            
         }
-
+        
         private void ConfigureLlbl()
         {
             string cs = Configuration.GetConnectionString("WeeksPlanning");

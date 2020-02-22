@@ -8,7 +8,7 @@ using View.DtoClasses;
 using WeeksPlanning.Core.Features.Plan.Models;
 using WeeksPlanning.Core.Services;
 
-namespace WeekPlanning.Api.Controllers
+namespace WeeksPlanning.Spa.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
