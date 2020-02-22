@@ -1,6 +1,6 @@
 {
   "name": "weeks-planning",
-  "homepage": "http://mustamohamed.github.io/12-Week-Planning",
+  "homepage": "https://weeksplanning-test.azurewebsites.net/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "rimraf ./build && react-scripts start",
+    "start-prod": "rimraf ./build && react-scripts start:production",
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom --passWithNoTests",
     "eject": "react-scripts eject",
