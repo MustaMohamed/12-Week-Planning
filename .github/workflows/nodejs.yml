@@ -19,20 +19,20 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: Install node packages
       run: yarn
-      working-directory: "./WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Spa/ClientApp"
     - name: Build semantic-ui with gulp
       run: yarn run build-semantic
-      working-directory: "./WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Spa/ClientApp"
     - name: Test frontend app with Jest
       run: yarn test
-      working-directory: ./WeeksPlanning.Api/Frontend
+      working-directory: "./WeeksPlanning.Spa/ClientApp"
       env:
         CI: true
     - name: Build frontend project
       run: yarn build
-      working-directory: "./WeeksPlanning.Api/Frontend"
+      working-directory: "./WeeksPlanning.Spa/ClientApp"
     - name: Deploy react frontend on gh-pages
       uses: peaceiris/actions-gh-pages@v3
       with:
           personal_token: ${{ secrets.PERSONAL_TOKEN_FOR_DEPLOYING_REPO }}
-          publish_dir: "WeeksPlanning.Api/Frontend/build"
+          publish_dir: "WeeksPlanning.Spa/ClientApp/build"

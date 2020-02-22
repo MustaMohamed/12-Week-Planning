@@ -15,22 +15,3 @@ jobs:
       run: dotnet restore
     - name: Build with dotnet
       run: dotnet build --no-restore --configuration Release
-      
-  build-frontend:
-    runs-on: windows-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Setup Node.js for use with actions
-        uses: actions/setup-node@v1.1.0
-        with:
-          node-version: 12.x
-      - name: Build frontend app with Node
-        run: yarn
-        working-directory: "./WeeksPlanning.Api/Frontend"
-      - name: Build semantic-ui with gulp
-        run: yarn run build-semantic
-        working-directory: "./WeeksPlanning.Api/Frontend"
-      - name: Test frontend app with Jest
-        run: yarn test
-        working-directory: ./WeeksPlanning.Api/Frontend
-        
