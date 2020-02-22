@@ -20,7 +20,7 @@ namespace WeeksPlanning.Migration
                 .AddJsonFile("appsettings.json");
 
             IConfigurationRoot configuration = builder.Build();
-            var connectionString = configuration["connectionString"];
+            var connectionString = configuration.GetConnectionString("Master");
             
             // Create a connection  
             var conn = new SqlConnection(connectionString);
