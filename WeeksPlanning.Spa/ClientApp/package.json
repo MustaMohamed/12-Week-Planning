@@ -32,7 +32,7 @@
     "build": "react-scripts build",
     "test": "cross-env CI=true react-scripts test --env=jsdom --passWithNoTests",
     "eject": "react-scripts eject",
-    "build-semantic": "cd \"src/semantic\" && gulp build",
+    "build-semantic": "cd ./src/semantic && gulp build",
     "lint": "eslint ./src/",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
