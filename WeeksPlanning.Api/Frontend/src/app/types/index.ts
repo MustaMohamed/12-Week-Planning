@@ -1,3 +1,0 @@
-﻿export * from './routes';
-
-export {};
