@@ -12,28 +12,31 @@ namespace WeeksPlanning.Migration
         {
             var input = Console.ReadLine();
             var items = input?.Split(" ");
-            string migrationChoice = items[0];
-            var serviceProvider = CreateServices();
-
-            // Put the database update into a scope to ensure
-            // that all resources will be disposed.
-            using (var scope = serviceProvider.CreateScope())
+            if (items != null)
             {
-                DatabaseCreator.EnsureDatabase(Tables.DatabaseName);
+                string migrationChoice = items[0];
+                var serviceProvider = CreateServices();
 
-                if (migrationChoice != null && migrationChoice.ToLower().Equals("up"))
+                // Put the database update into a scope to ensure
+                // that all resources will be disposed.
+                using (var scope = serviceProvider.CreateScope())
                 {
-                    UpdateDatabase(scope.ServiceProvider);
-                }
+                    DatabaseCreator.EnsureDatabase(Tables.DatabaseName);
 
-                if (migrationChoice != null && migrationChoice.ToLower().Equals("down"))
-                {
-                    if (items.Length > 1)
+                    if (migrationChoice != null && migrationChoice.ToLower().Equals("up"))
                     {
-                        var version = Convert.ToInt64(items[1]);
-                        if (version > -1)
+                        UpdateDatabase(scope.ServiceProvider);
+                    }
+
+                    if (migrationChoice != null && migrationChoice.ToLower().Equals("down"))
+                    {
+                        if (items.Length > 1)
                         {
-                            RollbackDatabase(scope.ServiceProvider, version);
+                            var version = Convert.ToInt64(items[1]);
+                            if (version > -1)
+                            {
+                                RollbackDatabase(scope.ServiceProvider, version);
+                            }
                         }
                     }
                 }
