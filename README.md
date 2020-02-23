@@ -1,2 +1,2 @@
-# 12-Week-Planning ![.NET Core Build](https://github.com/MustaMohamed/12-Week-Planning/workflows/.NET%20Core/badge.svg) ![Node.js CI](https://github.com/MustaMohamed/12-Week-Planning/workflows/Node.js%20CI/badge.svg)
+# 12-Week-Planning ![.NET Core Build](https://github.com/MustaMohamed/12-Week-Planning/workflows/.NET%20Core/badge.svg) ![Node.js CI](https://github.com/MustaMohamed/12-Week-Planning/workflows/Node.js%20CI/badge.svg) [![Build status](https://dev.azure.com/Mustafa-Mohamed/Products%20Catalog/_apis/build/status/weeksplanning-test%20-%20CI)](https://dev.azure.com/Mustafa-Mohamed/Products%20Catalog/_build/latest?definitionId=1)
 Simple project that scheduling a plan for #number of weeks
