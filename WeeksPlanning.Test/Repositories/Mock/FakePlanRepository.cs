@@ -39,14 +39,18 @@ namespace WeeksPlanning.Test.Repositories.Mock
 
         public IQueryable<PlanEntity> Add(PlanEntity entity)
         {
+            if (_plansList.Any(p => p.Id == entity.Id))
+                throw new InvalidOperationException();
             _plansList.Add(entity);
             return _plansList.Where(p => p.Id == entity.Id).AsQueryable();
         }
 
         public IQueryable<PlanEntity> Update(PlanEntity entity)
         {
-            var updateEntity = _plansList.Find(p => p.Id == entity.Id);
-            updateEntity = entity;
+            var updateEntity = _plansList.FirstOrDefault(p => p.Id == entity.Id);
+            if (updateEntity == null)
+                throw new InvalidOperationException();
+            ApplyUpdateEntity(ref updateEntity, entity);
             return _plansList.Where(p => p.Id == entity.Id).AsQueryable();
         }
 
@@ -58,6 +62,21 @@ namespace WeeksPlanning.Test.Repositories.Mock
         public bool Delete(int id)
         {
             return _plansList.RemoveAll(p => p.Id == id) == 1;
+        }
+
+        private void ApplyUpdateEntity(ref PlanEntity dist, PlanEntity source)
+        {
+            if (source.Id != null)
+                dist.Id = source.Id;
+
+            if (!string.IsNullOrEmpty(source.Name))
+                dist.Name = source.Name;
+
+            if (source.DurationInWeeks != null)
+                dist.DurationInWeeks = source.DurationInWeeks;
+
+            if (source.StartingDateUtc != null)
+                dist.StartingDateUtc = source.StartingDateUtc;
         }
     }
 }
