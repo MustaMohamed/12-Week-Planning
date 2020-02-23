@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View.Persistence", "Entitie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Spa", "WeeksPlanning.Spa\WeeksPlanning.Spa.csproj", "{B241E63D-B00E-4977-94EF-E222BEED447F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeeksPlanning.Test", "WeeksPlanning.Test\WeeksPlanning.Test.csproj", "{62537F07-A327-4BEF-B8FA-3CC9E1F0E6F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,5 +83,9 @@ Global
 		{B241E63D-B00E-4977-94EF-E222BEED447F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B241E63D-B00E-4977-94EF-E222BEED447F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B241E63D-B00E-4977-94EF-E222BEED447F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{62537F07-A327-4BEF-B8FA-3CC9E1F0E6F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62537F07-A327-4BEF-B8FA-3CC9E1F0E6F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62537F07-A327-4BEF-B8FA-3CC9E1F0E6F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62537F07-A327-4BEF-B8FA-3CC9E1F0E6F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
