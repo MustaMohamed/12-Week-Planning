@@ -73,7 +73,8 @@ namespace WeeksPlanning.Test.Repositories
             var plan = _planRepository.Get(2);
             Assert.Empty(plan);
             Assert.Null(plan.FirstOrDefault());
-            Assert.Throws<NullReferenceException>(() => plan.FirstOrDefault()?.Id);
+            var p = plan.FirstOrDefault();
+            Assert.Throws<NullReferenceException>(() => p.Id);
         }
 
         [Fact]
@@ -131,6 +132,7 @@ namespace WeeksPlanning.Test.Repositories
             {
                 Id = 1,
                 Name = "Updated Plan",
+                DurationInWeeks = 4,
             };
 
             var result = _planRepository.Update(newPlan);
