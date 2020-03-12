@@ -79,10 +79,10 @@ namespace WeeksPlanning.Repositories
 
         public bool Delete(PlanEntity entity)
         {
-            throw new NotImplementedException();
+            return Delete(entity.Id);
         }
 
-        public bool Delete(int id)
+        public bool Delete(long id)
         {
             return OrmOperationFactory.DoCommand((adapter, meta) =>
             {

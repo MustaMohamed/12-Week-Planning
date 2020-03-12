@@ -13,6 +13,6 @@ namespace WeeksPlanning.Core.Core
         IQueryable<T> Add(T entity);
         IQueryable<T> Update(T entity);
         bool Delete(T entity);
-        bool Delete(int id);
+        bool Delete(long id);
     }
 }

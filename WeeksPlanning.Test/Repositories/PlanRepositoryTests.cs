@@ -64,7 +64,7 @@ namespace WeeksPlanning.Test.Repositories
             Assert.IsAssignableFrom<IQueryable<PlanEntity>>(plan);
             Assert.NotEmpty(plan);
             Assert.NotNull(plan.SingleOrDefault());
-            Assert.True(plan.SingleOrDefault().IsActive);
+            Assert.True(plan.SingleOrDefault()?.IsActive);
         }
 
         [Fact]
@@ -73,7 +73,8 @@ namespace WeeksPlanning.Test.Repositories
             var plan = _planRepository.Get(2);
             Assert.Empty(plan);
             Assert.Null(plan.FirstOrDefault());
-            Assert.Throws<NullReferenceException>(() => plan.FirstOrDefault().Id);
+            var p = plan.FirstOrDefault();
+            Assert.Throws<NullReferenceException>(() => p.Id);
         }
 
         [Fact]
@@ -91,7 +92,7 @@ namespace WeeksPlanning.Test.Repositories
             Assert.IsAssignableFrom<IQueryable<PlanEntity>>(result);
             Assert.NotEmpty(result);
             Assert.NotNull(result.SingleOrDefault());
-            Assert.True(result.SingleOrDefault().IsActive);
+            Assert.True(result.SingleOrDefault()?.IsActive);
             Assert.Equal(2, _planRepository.GetCount());
             Assert.NotEqual(1, _planRepository.GetCount());
         }
@@ -165,7 +166,7 @@ namespace WeeksPlanning.Test.Repositories
             {
                 result = _planRepository.Update(updatePlan);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Assert.IsAssignableFrom<IQueryable<PlanEntity>>(result);
                 Assert.Empty(result);

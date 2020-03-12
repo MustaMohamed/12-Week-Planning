@@ -59,23 +59,23 @@ namespace WeeksPlanning.Test.Repositories.Mock
             return _plansList.Remove(entity);
         }
 
-        public bool Delete(int id)
+        public bool Delete(long id)
         {
             return _plansList.RemoveAll(p => p.Id == id) == 1;
         }
 
         private void ApplyUpdateEntity(ref PlanEntity dist, PlanEntity source)
         {
-            if (source.Id != null)
+            if (source.Id > 0)
                 dist.Id = source.Id;
 
             if (!string.IsNullOrEmpty(source.Name))
                 dist.Name = source.Name;
 
-            if (source.DurationInWeeks != null)
+            if (source.DurationInWeeks > 0)
                 dist.DurationInWeeks = source.DurationInWeeks;
 
-            if (source.StartingDateUtc != null)
+            if (source.StartingDateUtc.Year >= DateTime.Today.Year)
                 dist.StartingDateUtc = source.StartingDateUtc;
         }
     }
