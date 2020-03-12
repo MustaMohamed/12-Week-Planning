@@ -42,7 +42,7 @@ namespace WeeksPlanning.Repositories
             throw new NotImplementedException();
         }
 
-        public bool Delete(int id)
+        public bool Delete(long id)
         {
             throw new NotImplementedException();
         }

@@ -15,7 +15,7 @@ namespace Framework.DependencyInjection
                 .Where(x =>
                 {
                     string name = x.GetName().Name;
-                    return name.Contains("WeeksPlanning");
+                    return name != null && name.Contains("WeeksPlanning");
                 }).ToList();
 
             assemblies.Add(Assembly.Load("WeeksPlanning.Core"));
